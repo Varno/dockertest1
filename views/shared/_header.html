@@ -1,0 +1,41 @@
+@!(model)
+<div class="header navbar navbar-inverse" ng-app="imageResizerProfile" ng-controller="profileEditorController">
+    <!-- BEGIN TOP NAVIGATION BAR -->
+    <div class="navbar-inner" ng-controller="profileEditorController">
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <div class="header-quick-nav">
+            <!-- BEGIN CHAT TOGGLER-->
+            <div class="pull-right">
+
+                    <ul class="nav quick-section ">
+                    @if(model.currentUser){
+                        <li class="quicklinks">
+                        <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#">
+                            <div class="user-details">
+                                <span><span>@model.currentUser.firstName @model.currentUser.lastName</span></span>
+                                <span class="caret"></span>
+                            </div>
+                        </a>
+                            <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
+                                @if(model.menu){
+                                    @for(var p=0; p<model.menu.length; p++) {
+                                        @{menuItem = model.menu[p]}
+                                        <li>
+                                            <a href="@menuItem.url"@menuItem.attributes>@menuItem.text</a></li>
+                                    }
+                                    <li class="divider"></li>
+                                }
+                                <li><a href="/logout"><i class="fa fa-power-off"></i>&nbsp;&nbsp;Logout</a></li>
+                            </ul>
+                        </li>
+                    } else{
+                        <li><a class="btn btn-primary" href="/login">Login</a></li>
+                     }
+                </ul>
+            </div>
+            <!-- END CHAT TOGGLER -->
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END TOP NAVIGATION BAR -->
+</div>

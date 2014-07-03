@@ -1,0 +1,31 @@
+﻿<div class="row m-t-20 m-b-40">
+
+    <div class="col-md-3 m-b-40" ng-repeat="tariff in tariffs">
+        <div class="pricing-holder" ng-class="{highlighted: activePlan==tariff.nameLowercase}">
+            <div class="inner">
+                <div class="title">
+                    {{tariff.name}}<br/>
+                    <span class="price" ng-if="tariff.displayPrice!='Free'">{{tariff.displayPrice}}/{{tariff.period}}</span>
+                    <span class="price" ng-if="tariff.displayPrice=='Free'">{{tariff.displayPrice}}</span>
+                </div>
+                <ul class="items">
+                    <li class="available" ng-repeat="limit in tariff.displayLimits" style="padding-right: 0px">
+                        <div class="icon-holder">
+                            <i class="fa fa-check text-success "></i>
+                        </div>
+                        <div class="desc" style="padding-left: 15px; padding-right: 0px">
+                            <span class="text-black" ng-if="limit.period">{{limit.value}} {{limit.name}} per {{limit.period}}</span>
+                            <span class="text-black" ng-if="!limit.period">{{limit.value}} {{limit.name}}</span>
+                        </div>
+                    </li>
+                </ul>
+                <button class="btn btn-block btn-primary" ng-if="activePlan!=tariff.nameLowercase" type="button"
+                        ng-click="subscribe(tariff.nameLowercase, tariff.name, tariff.price)"  ng-disabled="!isEmailActivated"
+                        ng-class="{'btn-danger': $index<2}">{{getButtonText($index)}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,79 @@
+<div id="modal-header" class="modal-header">
+    <button type="button" class="close" aria-hidden="true" ng-click="cancel()">&times;</button>
+
+    <h4><strong>Your info</strong></h4>
+    <h5>This is your most basic info, we need it&hellip;</h5>
+</div>
+<form name="form" parsley-validate submit-valid-only="update()" novalidate ng-init="initModal()">
+    <div class="modal-body bg-gray no-border">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
+                <div class="alert alert-error" ng-show="errorMessage">
+                    {{ errorMessage }}
+                </div>
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="form-group col-md-6 col-sm-6">
+                            <input name="firstName" type="text" class="form-control required" placeholder="First name"
+                                   ng-model="profile.firstName" focus-me="true">
+                        </div>
+                        <div class="form-group col-md-6 col-sm-6">
+                            <input name="lastName" type="text" class="form-control required" placeholder="Last name"
+                                   ng-model="profile.lastName">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input name="email" type="text" class="form-control required" placeholder="Email"
+                               parsley-type="email"
+                               ng-model="profile.email">
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6 col-sm-6">
+                            <input name="phone" id="phone" type="text" class="form-control required"
+                                   placeholder="Cell Phone Number"
+                                   pattern="^\+\d\(\d{3}\) ?\d{3}-\d{4}"
+                                   ng-model="profile.infoObject.phone">
+                        </div>
+                        <div class="form-group col-md-6 col-sm-6">
+                            <input name="postalCode" type="text" class="form-control required"
+                                   parsley-type="digits" placeholder="Postal code"
+                                   ng-model="profile.infoObject.postalCode">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Company" class="form-control required"
+                               ng-model="profile.infoObject.company">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Domain name" tags-input-directive class="form-control required" id="domains"
+                               pattern="^([a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6})(,([a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6}))*$"
+                               domains="profile.infoObject.domains"
+                               ng-model="profile.infoObject.domains">
+                    </div>
+                </div>
+
+                <div ng-if="!profile.isActivated">
+                    <div class="alert alert-success" ng-if="activateMessage">
+                        {{activateMessage}}
+                    </div>
+
+                    <loader ng-model="isActivateEmailSending"></loader>
+                    <button class="btn btn-block btn-white" type="button" ng-click="callMeAgain()"
+                            ng-if="!isActivateEmailSending && !activateMessage">
+                        Call me one more time
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" type="button" ng-click="cancel()">Close</button>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </div>
+</form>

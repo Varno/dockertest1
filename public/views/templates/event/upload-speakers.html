@@ -1,0 +1,53 @@
+<div id="modal-header" class="modal-header">
+    <button type="button" class="close" aria-hidden="true" ng-click="cancel()">&times;</button>
+
+    <h4><strong>Upload files</strong></h4>
+    <h5>We can accept xlsx file</h5>
+</div>
+<div class="modal-body bg-gray ">
+    <div class="row">
+        <div class="alert" ng-if="showNotAllowedError">
+            Upload supports the following files: xlsx.
+            Maximum size of each is 80MB.
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="alert alert-error" ng-show="errorMessage">
+                {{ errorMessage }}
+            </div>
+
+            <div class="form-group">
+                <span class="file-input btn btn-block btn-primary btn-file cursor-pointer">
+					Browse
+                    <input ng-file-select type="file" multiple class="btn-block"/><br/>
+				</span>
+
+                <table class="table no-more-tables" ng-if="queueNotEmpty()">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in uploader.queue" class="session-content-upload ng-scope">
+                        <td class="v-align-middle" ng-class="hasProgressClass(item)">
+                            <div class="progress" ng-if="uploader.isHTML5">
+                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                            </div>
+                            <div class="fileName">
+                                {{item.file.name}}
+                            </div>
+                            <a href="#" class="btn-trash" ng-click="item.remove()" ng-if="!item.isSuccess && !item.isUploading">
+                                <i class="fa fa-trash-o big-default"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer"  ng-if="queueNotEmpty() && !uploader.isUploading">
+    <button class="btn btn-default btn-primary btn-cons-modal" ng-click="uploadAll()">Upload</button>
+</div>

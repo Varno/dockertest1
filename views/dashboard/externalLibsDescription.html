@@ -1,0 +1,69 @@
+@!(model)
+@function styles(){
+<link rel="stylesheet" type="text/css" href="/assets/others/plugins/fseditor/fseditor.css">
+<style type="text/css">
+    pre {
+        white-space: pre-line;
+    }
+    .fs-editor.expanded{
+        margin-top:35px;
+    }
+    .fs-editor-wrapper .fs-editor.expanded{
+        height:85%;
+    }
+    img{
+        width:100%;
+    }
+</style>
+}
+@function scripts(){
+<script src="http://scottjehl.github.io/picturefill/dist/picturefill.js"></script>
+<script src="/js/responsive-images.js/responsive-img.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.jeditable/1.7.3/jquery.jeditable.js"></script>
+<script src="/assets/others/plugins/fseditor/jquery.fseditor-min.js"></script>
+<script src="/assets/app/js/app.docs.js"></script>
+}
+@function body() {
+<div class="container p-t-10">
+    <div class="span9">
+        <h2>Using the Image Resizer with Responsive libs</h2>
+
+        <div class="bs-callout bs-callout-info">
+            <p>You can set bounds for each image with the <i>constrainHeight</i> and/or <i>constrainWidth</i> commands
+                and
+                using the resized image for different device size. How those bounds are interpreted is determined by the
+                <i>constrainMode</i>.
+                <i>constrainMode</i> can have following values:</p>
+            <ul>
+                <li>
+                    </i>fit</i> – fit source image to new size;
+                </li>
+                <li>
+                    <i>fill</i> – fill source image to new size (by default);
+                </li>
+                <li>
+                    <i>original</i> – resized image preserves the aspect ratio;
+                </li>
+            </ul>
+        </div>
+        <h3>Example 1, using "img" tag with "srcset" and "sizes" attributes:</h3>
+            <pre class="edit" id="example-1-code">
+                @model.htmlExample1
+            </pre>
+        <p>Preview (feel free to resize window to see it change):</p>
+        <div id="example-1-holder">
+        </div>
+
+        <h3>Example 2, using <a href="http://davidwalsh.name/responsive-design">responsive-images.js lib</a> :</h3>
+            <pre class="edit" id="example-2-code">
+                @model.htmlExample2
+            </pre>
+        <p>Preview (feel free to resize window to see it change):</p>
+        <div id="example-2-holder">
+        </div>
+    </div>
+    <br>
+    <br>
+</div>
+}
+@render('../shared/layout',body,model,styles,scripts)

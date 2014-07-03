@@ -1,0 +1,65 @@
+﻿@!(model)
+@function body() {
+<div class="container">
+    <div class="p-t-10" ng-app="imageResizer" ng-controller="tariffsController" ng-cloak ng-init="init({
+                                stripeKey: '@model.stripeKey',
+                                activePlan: '@model.activePlan',
+                                isEmailActivated: '@model.isEmailActivated',
+                                isPhoneActivated: '@model.isPhoneActivated',
+                                firstName: '@model.firstName',
+                                lastName: '@model.lastName',
+                                email: '@model.email'
+                            })">
+        <div class="col-md-5" ng-if="!isActivated && loaded">
+            <div class="row">
+                <div ng-include="'/views/profile/profile.html'"></div>
+            </div>
+        </div>
+        <div class="page-title" ng-if="isActivated && loaded">
+            <h2>ImageResizer - <span class="semi-bold">plan subscription management</span></h2>
+
+            <div ng-if="!isEmailActivated" class="bs-callout bs-callout-warning">
+                <h4 class="text-warning">You haven't confirmed your email yet. To get ability to manage your plans, please,
+                    confirm your
+                    email first</h4>
+
+                <div class="alert alert-success" ng-if="activateMessage">
+                    {{activateMessage}}
+                </div>
+                <div class="span3" ng-if="!isSending && !activateMessage">
+                    <button class="btn btn-warning" type="button" ng-click="emailMeAgain()"
+                            ng-controller="dashboardController">
+                        Resend activation email
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-t-10" ng-if="isActivated && loaded">
+            <div class="span12">
+                <div ng-include="'/views/templates/tariffs/tariffs-template.html'"></div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+@function styles() {
+    <link href="/assets/css/style.css" rel="stylesheet" type="text/css"/>
+}
+@function scripts() {
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+    <script type="text/javascript" src="/application/directives/ng-table.js"></script>
+    <script type="text/javascript" src="/application/angular-directives/tariffs-directives.js"></script>
+
+    <script type="text/javascript" src="/application/services/securityService.js"></script>
+    <script type="text/javascript" src="/application/services/notificationService.js"></script>
+    <script type="text/javascript" src="/application/services/activationService.js"></script>
+    <script type="text/javascript" src="/application/services/tariffsService.js"></script>
+    <script type="text/javascript" src="/application/services/dashboardService.js"></script>
+    <script type="text/javascript" src="/application/controllers/tariffsController.js"></script>
+    <script type="text/javascript" src="/application/controllers/dashboardController.js"></script>
+
+    <script type="text/javascript" src="/application/angular-apps/tariffs.js"></script>
+}
+
+@render('../shared/layout',body,model,styles,scripts)

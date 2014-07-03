@@ -1,0 +1,105 @@
+<div class="col-md-12 col-sm-12">
+    <div class="controls stack-left">
+        <div class="col-md-8 col-sm-8 sixtywidth-slider pull-right-slider">
+            <label class="control-label text-left">Img Blur</label>
+            <input type="text" class="slider-element form-control"
+                   data-slider-value="10" data-slider-step="1"
+                   data-slider-min="0" data-slider-max="100"
+                   data-slider-orientation="horizontal"
+                   data-slider-selection="after"
+                   data-target-name="blur"
+                   data-slider-tooltip="hide">
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <input type="text" class="fullwidth slider-value" id="blur" name="blur"
+                   data-ng-model="stageModel.blur.value" value="{{stageModel.blur.value == 0 ? '' : stageModel.blur.value + '%'}}" disabled="disabled">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <label class="control-label text-left">Shadow</label>
+    <div class="controls input-append col-md-12 col-sm-12">
+        <input type="text" name="shadow-back-color" id="shadow-back-color"
+               placeholder="Color" href="#" class="colorpicker"
+               data-ng-model="stageModel.shadowColor.value">
+        <span class="add-on">
+            <i data-color-format="hex" data-color="rgb(10, 166, 153)"
+               class="my-colorpicker-control" data-colorpicker-guid="8"></i>
+        </span>
+    </div>
+    <div class="controls">
+        <div class="col-md-6 col-sm-6 sixtywidth-slider pull-left-slider">
+            <label class="control-label text-left">Shadow Blur</label>
+            <input type="text" class="slider-element form-control"
+                   data-slider-value="100" data-slider-step="1"
+                   data-slider-min="0" data-slider-max="100"
+                   data-slider-orientation="horizontal"
+                   data-slider-selection="after"
+                   data-slider-tooltip="hide"
+                   data-target-name="shadow-blur">
+            <input type="text" name="shadow-blur" id="shadow-blur" class="pull-right quarterwidth"
+                   data-ng-model="stageModel.shadowBlur.value" value="{{stageModel.shadowBlur.value == 0 ? '' : stageModel.shadowBlur.value + '%'}}" disabled="disabled">
+        </div>
+        <div class="col-md-6 col-sm-6 sixtywidth-slider pull-left-slider">
+            <label class="control-label text-left">Direction</label>
+            <div class="col-sm-5">
+                <input type="text" id="shadow-direction-x" name="shadow-direction-x" value="10" class="pull-right"
+                   data-ng-model="stageModel.shadowDirection.X">
+            </div>
+            <div class="col-sm-5">
+                <input type="text" id="shadow-direction-y" name="shadow-direction-y" value="10" class="pull-right"
+                    data-ng-model="stageModel.shadowDirection.Y">
+            </div>
+        </div>
+    </div>
+    <div class="controls stack-left">
+        <div class="col-md-8 col-sm-8 rotate-container">
+            <label class="control-label text-left">Rotate</label>
+            <input type="radio" name="rotate" id="counterclockwise" value="-" class="input_hidden"
+                   data-ng-model="stageModel.rotate.prefix">
+            <label title="Rotate counterclockwise" for="counterclockwise" class="pull-left button"><i class="fa fa-rotate-left fa-2x"></i></label>
+            <input type="radio" name="rotate" id="clockwise" value="" class="input_hidden"
+                   data-ng-model="stageModel.rotate.prefix">
+            <label title="Rotate clockwise" for="clockwise" class="pull-left button m-l-10"><i class="fa fa-rotate-right fa-2x"></i></label>
+            <input type="text" class="pull-left quarterwidth m-l-35" placeholder="0°" id="rotate" number data-ng-model="stageModel.rotate.value">
+            <span class="rotate-prefix">&nbsp;{{stageModel.rotate.prefix}}&nbsp;</span>
+        </div>
+        <div class="col-md-4 col-sm-4">
+
+        </div>
+    </div>
+    <div class="controls stack-left rotate-container">
+        <div class="col-md-8 col-sm-8">
+            <label class="control-label text-left">Flip</label>
+            <input type="radio" name="flip" id="flip-horizontal" value="horizontal" class="input_hidden"
+                   data-ng-model="stageModel.flip.value">
+            <label title="Flip horizontal" for="flip-horizontal" class="pull-left button"><i class="fa fa-arrows-h fa-flip-horizontal fa-2x"></i></label>
+            <input type="radio" name="flip" id="flip-vertical" value="vertical" class="input_hidden"
+                   data-ng-model="stageModel.flip.value">
+            <label title="Flip vertical" for="flip-vertical" class="pull-left button m-l-10"><i class="fa fa-arrows-v fa-2x"></i></label>
+
+            <span class="pull-left quarterwidth m-l-35">{{stageModel.flip.value}}</span>
+
+        </div>
+        <div class="col-md-4 col-sm-4">
+
+        </div>
+    </div>
+    <div class="controls stack-left">
+        <div class="col-md-6 col-sm-6">
+            <label class="control-label text-left">Invert</label>
+            <input type="checkbox" name="invert" id="invert" class="js-switch" ui-switch off-color="#fff" compiled-class="m-l-15"
+                   data-ng-true-value="true"
+                   data-ng-false-value="false"
+                   data-ng-model="stageModel.invert.value">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="controls mask">
+        <div class="col-md-12 col-sm-12">
+            <label class="control-label text-left pull-left">Mask</label>
+            <input type="text" name="mask-image-url" style="width: 80%" id="mask-image-url"
+                   class="pull-right"
+                data-ng-model="stageModel.mask.value">
+        </div>
+    </div>
+</div>

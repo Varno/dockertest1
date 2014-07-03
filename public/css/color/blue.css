@@ -1,0 +1,290 @@
+/* ==================================================================
+GLOBAL STYLES
+================================================================== */
+a,
+a:hover,
+a:focus,
+a:active {
+	color:#0B9C8F;
+}
+
+/* ==================================================================
+TYPOGRAPHY
+================================================================== */
+
+em {
+	color:#0B9C8F;
+}
+
+/* ==================================================================
+HEADING
+================================================================== */
+.heading span.line {
+	border-bottom: 2px solid #0B9C8F;
+}
+
+/* ==================================================================
+FIXED NAVBAR
+================================================================== */
+ul.nav li a::before,
+ul.nav li a::after,
+ul.nav li a:hover::before,
+ul.nav li a:hover::after,
+ul.nav li a:focus::before,
+ul.nav li a:focus::after,
+ul.nav li.active a::before,
+ul.nav li.active a::after,
+ul.nav li.active a{
+	color:#0B9C8F;
+}
+
+/* ==================================================================
+BRAND - NAVBAR, HOMEPAGE, FOOTER
+================================================================== */
+footer h1.logo {
+	color:rgba(54,142,224,.7);
+}
+
+/* ==================================================================
+SECTIONS
+================================================================== */
+#spotlight1, #speakers, #blog{
+	border-top: 1px solid #b8dbfb;
+	background: #fff url(../../images/patterns/pattern_blue.png) repeat;
+}
+
+/* ==================================================================
+HOMEPAGE
+================================================================== */
+.intro .btn-lg:hover,
+.intro .learn{
+	border-color: #0B9C8F;
+	background: #0B9C8F;
+}
+
+.intro .learn:hover{
+	color: #0B9C8F;
+}
+
+/* ==================================================================
+FEATURES
+================================================================== */
+.hi-icon-effect .hi-icon:after {
+	background: #0B9C8F;
+}
+
+.features-desc:hover h4 {
+	color: #0B9C8F;
+}
+
+/* ==================================================================
+SPOTLIGHT 1
+================================================================== */
+.spotlight-link:hover{
+	border-color: #0B9C8F;
+	background: #0B9C8F;
+}
+
+/* ==================================================================
+NEWSLETTER
+================================================================== */
+.subs-submit,
+.subs-submit:hover,
+.subs-submit:focus,
+.subs-submit:active{
+	border-color: #0B9C8F;
+	background: #0B9C8F;
+}
+
+/* ==================================================================
+GALLERY
+================================================================== */
+a.thumbnail:hover{
+	border-color: #0B9C8F;
+}
+
+a.thumbnail div {
+	background: rgba(40,119,181,0.75);
+}
+
+/* ==================================================================
+SPOTLIGHT 2
+================================================================== */
+.spotlight-features li:hover .hi-icon-2 {
+	background: #0B9C8F;
+	box-shadow: 0 0 0 2px #0B9C8F;
+}
+
+.spotlight-features li:hover p strong {
+	color: #0B9C8F;
+}
+
+.spotlight-link:hover{
+	border-color: #0B9C8F;
+	background: #0B9C8F;
+}
+
+/* ==================================================================
+COMMENTS
+================================================================== */
+#comments .icon-title {
+	background: #0B9C8F;
+}
+
+/* ==================================================================
+PRICES
+================================================================== */
+.circle-price{
+	background: #0B9C8F;
+}
+
+.buy-now a:hover{
+	border-color: #0B9C8F;
+	background: #0B9C8F;
+}
+
+/* ==================================================================
+BLOG
+================================================================== */
+.post .thumbnail:hover{
+	border-color: #0B9C8F;
+}
+
+.mask-overlay{
+	background: #2877b5;
+}
+
+a.more:hover,
+a.more-posts:hover{
+	border-color: #0B9C8F;
+	background: #0B9C8F;
+}
+
+/* ==================================================================
+TWITTER
+================================================================== */
+.icon-twitter {
+	color: #0B9C8F;
+}
+
+/* ==================================================================
+CONTACT
+================================================================== */
+.button-send:hover,
+.button-send:focus,
+.button-send:active{
+	border-color: #0B9C8F;
+	background: #0B9C8F;
+}
+
+.success-message-2{
+	color: #0B9C8F;
+}
+
+/* ==================================================================
+FOOTER
+================================================================== */
+.footer-content .back-top:hover{
+	background-color: #0B9C8F;
+}
+
+/* ==================================================================
+RESPONSIVE
+================================================================== */
+@media (max-width: 480px) {
+	.navbar-toggle:hover .icon-bar{
+		background-color: #0B9C8F;
+	}
+}
+
+/* Buttons Overwride */
+.btn {
+    display: inline-block;
+     padding: 9px 12px;
+	 padding-top:7px ;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #5e5e5e;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #d1dade;
+    -webkit-border-radius: 3px;
+     -webkit-border-radius: 3px;
+     -webkit-border-radius: 3px;
+	background-image:none !important;
+	border: none;
+	text-shadow: none;
+	box-shadow:none;
+    transition: all 0.12s linear 0s !important;
+	font: 14px/20px "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.btn-primary{
+	color: #fff;
+    background-color: #0aa699;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+    background-color: #0b9c8f;
+}
+.btn-success{
+	color: #fff;
+    background-color: #0090d9;
+}
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled] {
+    background-color: #1285d1;
+}
+.btn-info{
+	color: #fff;
+    background-color: #1f3853;
+}
+.btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .btn-info.disabled, .btn-info[disabled] {
+    background-color: #152639;
+}
+.btn-warning{
+	color: #fff;
+    background-color: #FBB05E;
+}
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .btn-warning.disabled, .btn-warning[disabled] {
+    background-color: #f8a142;
+}
+
+.btn-danger{
+	color: #fff;
+    background-color: #f35958;
+}
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled] {
+    background-color: #e94847;
+}
+
+.btn-danger-dark{
+	color: #fff;
+    background-color: #b94141;
+}
+.btn-danger-dark:hover, .btn-danger-dark:focus, .btn-danger-dark:active, .btn-danger-dark.active, .btn-danger-dark.disabled, .btn-danger-dark[disabled] {
+    background-color: #e94847;
+	color: #fff;
+}
+.btn-dark{
+	color: #fff;
+    background-color: #333a49;
+}
+.btn-white{
+	color: #5e5e5e;
+    background-color: #fff;
+	border:1px solid #e5e9ec;
+}
+.btn-white:hover, .btn-white:focus, .btn-white:active, .btn-white.active, .btn-white.disabled, .btn-white[disabled] {
+    background-color: #fbfcfd;
+	border:1px solid #b4b9be;
+}
+.btn-link{
+	color: #5e5e5e;
+    background-color: transparent;
+	border:none;
+}
+.btn-sps{
+	color: #fff;
+    background-color: #746487;
+}

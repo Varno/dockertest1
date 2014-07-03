@@ -1,0 +1,104 @@
+@!(model)
+
+@function body() {
+<div class="container">
+    <div class="row login-container complete-register animated fadeInUp">
+        <div class="col-md-7 col-md-offset-2 tiles white no-padding">
+            <div class="p-t-30 p-r-30 p-l-40 p-r-40 p-b-20 p-r-20 xs-p-t-10 xs-p-r-10 xs-p-l-10 xs-p-r-10 xs-p-b-10 xs-p-r-10">
+                @if(model.message){
+                <div class="alert alert-error">
+                    <button class="close" data-dismiss="alert"></button>
+                    @model.message
+                </div>
+                }
+                <h2 class="normal">Please fill additional information</h2>
+
+                <p>Some text will be here.<br>
+                </p>
+
+                <form id="demo-form" action='/auth/complete' method='post' parsley-validate>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                @if(model.user && model.user.profileImageUrl){
+                                <img src=@model.user.profileImageUrl alt='' width="69" height="69">
+                                }
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Alias</label>
+                                <span class="help">e.g. "JohnSmith"</span>
+
+                                <div class="controls">
+                                    <div class="input-group transparent">
+                                        <span class="input-group-addon ">/</span>
+                                        <input name="alias" type="text" class="form-control required"
+                                               parsley-regexp="^[A-Za-z0-9\.\-_]+$"
+                                               parsley-error-container="#aliasErrorContainer"
+                                               parsley-error-message="Alias is required and should consists of alphanumeric symbols, dots, underscores and dashs only."
+                                               value="@(model.user ? model.user.alias : '')">
+                                    </div>
+                                    <div id="aliasErrorContainer"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <span class="help">e.g. "some&#64;example.com"</span>
+
+                                <div class="controls">
+                                    <input type="email" class="form-control required" name='email'
+                                           value="@(model.invite ? model.invite.speakerInfo.email : (model.user ? model.user.email : ''))"
+                                           @(model.invite ? 'readonly="readonly"' : '') />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">First name</label>
+                                <span class="help">e.g. "John"</span>
+
+                                <div class="controls">
+                                    <input type="text" class="form-control required" name='firstName'
+                                           value="@(model.user ? model.user.firstName : '')">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last name</label>
+                                <span class="help">e.g. "Smith"</span>
+
+                                <div class="controls">
+                                    <input type="text" class="form-control required" name='lastName'
+                                           value="@(model.user ? model.user.lastName : '')">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <span class="help">e.g. "8325552002"</span>
+
+                                <div class="controls">
+                                    <input type="text" class="form-control required" name='info[phone]'
+                                           parsley-type="digits"
+                                           value="@(model.user ? model.user.info.phone : '')">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Postal code</label>
+                                <span class="help">e.g. "123456"</span>
+
+                                <div class="controls">
+                                    <input type="text" class="form-control required" name='info[postalCode]'
+                                           parsley-type="digits"
+                                           value="@(model.user ? model.user.info.postalCode : '')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href='/auth/complete/reset' class="btn btn-default btn-cons pull-right">Cancel</a>
+                    <button type="submit" class="overflow-auto m-b-40 btn btn-primary btn-cons pull-right"><i
+                            class="fa fa-check"></i>&nbsp;Submit
+                    </button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+}
+
+@render('../shared/auth-layout',body)

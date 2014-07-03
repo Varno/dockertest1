@@ -1,0 +1,98 @@
+<div class="col-md-12 col-sm-12">
+    <div class="controls">
+        <div class="halfwidth">
+            <label class="control-label text-left">Replicating color</label>
+        </div>
+        <div class="input-append col-md-6 col-sm-6">
+            <input type="text" name="replicating-color" id="edgefill-replicating-color"
+                   placeholder="Color" href="#" class="colorpicker halfwidth"
+                   data-ng-model="stageModel.edgeFillReplaceColor.value">
+            <span class="add-on">
+                <i data-color-format="hex" data-color="rgb(10, 166, 153)"
+                   class="my-colorpicker-control" data-colorpicker-guid="8"></i>
+            </span>
+        </div>
+        <!-- !!Hack!! Replace once figure it out -->
+        <div class="halfwidth pull-right" style="margin-top:-25px">
+            <label class="control-label text-left">Target color</label>
+        </div>
+        <div class="input-append col-md-6 col-sm-6">
+            <input type="text" name="shadow-back-color" id="edgefill-target-color"
+                   data-ng-model="stageModel.edgeFillTargetColor.value"
+                   placeholder="Color" href="#" class="colorpicker halfwidth"/>
+                            <span class="add-on">
+                                <i data-color-format="hex" data-color="rgb(10, 166, 153)"
+                                   class="my-colorpicker-control" data-colorpicker-guid="8"></i>
+                            </span>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="controls">
+        <label class="control-label text-left">Threshold</label>
+        <div class="col-md-9 col-sm-9">
+            <input type="text" class="slider-element form-control"
+                   name="edge-fill-threshold" id="edge-fill-threshold"
+                   data-slider-value="10" data-slider-step="1"
+                   data-slider-min="0" data-slider-max="100"
+                   data-slider-orientation="horizontal"
+                   data-slider-selection="after"
+                   data-slider-tooltip="hide"
+                   data-target-name="edgeFill-threshold">
+        </div>
+        <div class="col-md-3 col-sm-3">
+            <input type="text" name="edgeFill-threshold" id="edgeFill-threshold" class="pull-right"
+                   data-ng-model="stageModel.edgeFillThreshold.value" disabled="disabled">
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <label class="control-label text-left">Flood</label>
+    <div class="controls">
+        <div class="controls">
+            <div class="halfwidth">
+                <label class="control-label text-left">Point</label>
+            </div>
+            <div class="input-append col-md-6 col-sm-6">
+                <div class="col-sm-5">
+                    <input type="text" id="flood-fill-target-pixel-x" name="flood-fill-target-pixel-x" value="10" class="pull-right"
+                           data-ng-model="stageModel.floodFillTargetPixel.X">
+                </div>
+                <div class="col-sm-5">
+                    <input type="text" id="flood-fill-target-pixel-y" name="flood-fill-target-pixel-y" value="10" class="pull-right"
+                           data-ng-model="stageModel.floodFillTargetPixel.Y">
+                </div>
+            </div>
+            <!-- !!Hack!! Replace once figure it out -->
+            <div class="halfwidth pull-right" style="margin-top:-25px">
+                <label class="control-label text-left">Target color</label>
+            </div>
+            <div class="input-append col-md-6 col-sm-6">
+                <input type="text" name="flood-color" id="flood-color"
+                       data-ng-model="stageModel.floodFillColor.value"
+                       placeholder="Color" href="#" class="colorpicker halfwidth">
+                                <span class="add-on">
+                                    <i data-color-format="hex" data-color="rgb(10, 166, 153)"
+                                       class="my-colorpicker-control" data-colorpicker-guid="8"></i>
+                                </span>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="controls">
+        <label class="control-label text-left">Threshold</label>
+        <div class="col-md-9 col-sm-9">
+            <input type="text" class="slider-element form-control"
+                   name="flood-fill-threshold" id="flood-fill-threshold"
+                   data-slider-value="10" data-slider-step="1"
+                   data-slider-min="0" data-slider-max="100"
+                   data-slider-orientation="horizontal"
+                   data-slider-selection="after"
+                   data-slider-tooltip="hide"
+                   data-target-name="floodFill-threshold">
+        </div>
+        <div class="col-md-3 col-sm-3">
+            <input type="text" name="floodFill-threshold" id="floodFill-threshold" class="pull-right"
+                   data-ng-model="stageModel.floodFillThreshold.value" disabled="disabled">
+        </div>
+    </div>
+</div>

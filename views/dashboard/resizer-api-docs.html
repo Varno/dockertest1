@@ -1,0 +1,91 @@
+@!(model)
+@function styles(){
+    <link href="/assets/lib/swagger/css/screen.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/lib/swagger/css/highlight.default.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        div.content{
+            overflow:hidden;
+        }
+        .grid-title.descriptive{
+            padding-bottom:20px !important;
+        }
+        .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.get div.heading,
+        .swagger-ui-wrap ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.get div.content{
+            background-color: #fff;
+        }
+        .swagger-ui-wrap{
+            margin:0;
+        }
+        .swagger-ui-wrap ul{
+            padding-left:0;
+        }
+        #message-bar{
+            min-height:0;
+        }
+    </style>
+}
+@function scripts(){
+    <script type="text/javascript" src="/assets/others/plugins/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/assets/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="/assets/lib/swagger/lib/backbone-min.js"></script>
+    <script type="text/javascript" src="/assets/lib/swagger/lib/handlebars-1.0.0.js"></script>
+    <script type="text/javascript" src="/assets/lib/swagger/lib/jquery.ba-bbq.min.js"></script>
+    <script type="text/javascript" src="/assets/lib/swagger/lib/jquery.slideto.min.js"></script>
+    <script type="text/javascript" src="/assets/lib/swagger/lib/jquery.wiggle.min.js"></script>
+    <script type="text/javascript" src="/assets/lib/swagger/lib/shred.bundle.js"></script>
+    <script type='text/javascript' src="/assets/lib/swagger/lib/highlight.7.3.pack.js"></script>
+    <script type="text/javascript" src="/assets/lib/swagger/lib/swagger.js"></script>
+    <script type="text/javascript" src="/assets/lib/swagger/lib/swagger-oauth.js"></script>
+    <script type="text/javascript" src="/assets/lib/swagger/swagger-ui.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            window.swaggerUi = new SwaggerUi({
+                url: "@model.apiUrl",
+                dom_id: "swagger-ui-container",
+                supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
+                onComplete: function(swaggerApi, swaggerUi){
+                    if(console) {
+                        console.log("Loaded SwaggerUI")
+                    }
+                    $('input[name="user_key"]').val('@model.userKey');
+                    $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+                    Docs.toggleEndpointListForResource('api');
+                },
+                onFailure: function(data) {
+                    if(console) {
+                        console.log("Unable to Load SwaggerUI");
+                        console.log(data);
+                    }
+                },
+                docExpansion: "none"
+            });
+
+            $('#input_apiKey').change(function() {
+                var key = $('#input_apiKey')[0].value;
+                if(key && key.trim() != "") {
+                    window.authorizations.add("key", new ApiKeyAuthorization("api_key", key, "query"));
+                }
+            })
+            window.swaggerUi.load();
+        });
+    </script>
+}
+@function body() {
+    <div class="container">
+        <div class="span9">
+            <div class="page-title">
+                <h2>Image resizer - API documentation</h2>
+            </div>
+
+            <div id="message-bar" class="swagger-ui-wrap">
+                &nbsp;
+            </div>
+
+            <div id="swagger-ui-container" class="swagger-ui-wrap">
+
+            </div>
+        </div>
+    </div>
+}
+@render('../shared/layout',body,model,styles,scripts)

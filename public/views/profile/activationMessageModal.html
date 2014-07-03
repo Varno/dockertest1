@@ -1,0 +1,27 @@
+<div id="modal-header" class="modal-header">
+    <button type="button" class="close" aria-hidden="true" ng-click="cancel()">&times;</button>
+    <h4><strong>Welcome</strong></h4>
+</div>
+<div class="modal-body bg-gray no-border">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <p>Awesome! You're halfway there!</p>
+
+            <p>You'll receive a call from us once you click the "Call Me Now" button.</p>
+
+            <p>Please enter the validation code to proceed to your account.</p>
+
+<!--            <p>If you didn't receive activation email, you can resend it by clicking on button below</p>
+            <div class="alert alert-success" ng-if="activateMessage">
+                {{activateMessage}}
+            </div>
+            <button class="btn btn-block btn-white" type="button" ng-click="emailMeAgain()"
+                    ng-if="!isActivateEmailSending && !activateMessage && !activatedEmail">
+                Resend activation email
+            </button>-->
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="cancel()">Close</button>
+</div>

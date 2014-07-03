@@ -1,0 +1,12 @@
+@!(model)<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    @for(var index = 0; index < model.profiles.length; index++)
+    {
+    @{ profile = model.profiles[index] }
+    <url>
+        <loc>@profile.publicUrl</loc>
+        <lastmod>@profile.updatedAt</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    }
+</urlset>

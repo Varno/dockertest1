@@ -1,0 +1,20 @@
+<div class="col-md-8 user-description-box col-sm-8">
+    <div ng-if="!profile.isActivated">
+        <div class="alert alert-success" ng-if="activateMessage">
+            {{activateMessage}}
+        </div>
+        <div class="row">
+            <loader ng-model="isCalling"></loader>
+            <button class="btn btn-block btn-white" type="button" ng-click="callMeAgain()"
+                    ng-if="!isCalling && !activateMessage">
+                Call Me Now
+            </button>
+        </div>
+        <div class="row">
+            <form action="/activate/phone/" method="POST">
+                <input type="text" name="token" placeholder="Enter your activation code here">
+                <button type="submit" class="btn">Activate</button>
+            </form>
+        </div>
+    </div>
+</div>

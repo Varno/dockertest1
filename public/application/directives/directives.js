@@ -1,0 +1,19 @@
+angular.module('imageResizer.directives', [
+    'dateFromMaskDirective',
+    'dateInlineDirective',
+    'dateTimeInlineDirective',
+    'fileSelectTargetDirective',
+    'focusMeDirective',
+    'loaderDirective',
+    'preventClickDirective',
+    'profileImageDirective',
+    'submitValidOnlyDirective',
+    'timeInlineDirective',
+    'twitterHandlerDirective',
+    'wiswigEditorDirective',
+    'popoverHtmlDirective',
+    'ngTable',
+    'serviceUsageChartDirective',
+    'clipboardCopyDirective',
+    'tagsInputDirective'
+]);

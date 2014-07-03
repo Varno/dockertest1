@@ -1,0 +1,73 @@
+#swagger-ui-container #resources_container.container {
+  width: 100%;
+}
+#swagger-ui-container #resources_container.container .footer {
+  margin-top: -50px;
+}
+#swagger-ui-container #resource_api > .heading {
+  display: none;
+}
+#swagger-ui-container ul {
+  list-style: none;
+  margin-left: -40px;
+}
+#swagger-ui-container ul li {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0px;
+}
+#swagger-ui-container .heading {
+  padding: 0 0 20px 0;
+}
+#swagger-ui-container .heading h2 {
+  float: left;
+}
+#swagger-ui-container .heading .options li {
+  display: inline-block;
+}
+#swagger-ui-container .heading a {
+  color: #505458!important;
+}
+#swagger-ui-container .heading .http_method {
+  text-transform: uppercase;
+}
+#swagger-ui-container .operation {
+  margin-bottom: 25px;
+}
+#swagger-ui-container .operation .content {
+  padding-top: 0px;
+}
+#swagger-ui-container .operation .content .fullwidth {
+  width: 100%;
+}
+#swagger-ui-container .operation .content .fullwidth tr th:first-child {
+  width: 15%!important;
+}
+#swagger-ui-container .operation .content .fullwidth tr th:first-child + th {
+  width: 30%!important;
+}
+#swagger-ui-container .operation .content .fullwidth tr th:first-child + th + th {
+  width: 35%!important;
+}
+#swagger-ui-container .operation .content .fullwidth tr th:first-child + th + th + th {
+  width: 10%!important;
+}
+#swagger-ui-container .operation .content .fullwidth tr th:first-child + th + th + th + th {
+  width: 10%!important;
+}
+#swagger-ui-container .operation .content .fullwidth tr input.parameter {
+  width: 98%;
+}
+#swagger-ui-container .operation .content .sandbox_header {
+  margin: 20px 0;
+}
+#swagger-ui-container .operation .content .sandbox_header .response_hider {
+  margin-left: 10px;
+}
+#swagger-ui-container .response pre {
+  background-color: #fff!important;
+}
+#swagger-ui-container .response pre code {
+  background-color: #fff!important;
+}

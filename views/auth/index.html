@@ -1,0 +1,157 @@
+﻿@!(model)
+
+@function body() {
+<div class='version'>@model.version</div>
+<div class="container" ng-controller="resetPasswordController" ng-init="init(null, 'speaker')">
+    <div class="row login-container animated fadeInUp">
+        <div class="col-md-7 col-md-offset-2 tiles white no-padding">
+            <div class="p-t-30 p-l-40 p-b-20 xs-p-t-10 xs-p-l-10 xs-p-b-10 p-r-20">
+                @if(model.message){
+                <div class="alert alert-error">
+                    <button class="close" data-dismiss="alert"></button>
+                    @model.message
+                </div>
+                }
+                <h2 class="normal">Sign in to Image Resizer Portal</h2>
+
+                <p class="p-b-20">Or sign up for a free ImageResizer account.</p>
+
+                <div class="widget-stats col-md-7 col-s-7 col-xs-7">
+                    <div class="transparent">
+                        @*<a href="indexdash.html" type="button" class="btn btn-primary btn-cons" id="login_toggle">Login</a>
+                        or&nbsp;&nbsp;*@
+                        <button type="button" class="btn btn-primary btn-cons" id="login_toggle">Login</button>
+                        or&nbsp;&nbsp;
+                        <button type="button" class="btn btn-info btn-cons" id="register_toggle">Create a Free Account
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-5 col-s-5 col-xs-5"><!--
+                    <a href="/auth/facebook" class="btn btn-block btn-info">
+                        <span class="pull-left"><i class="fa fa-facebook"></i></span>
+                        <span class="bold">Login with Facebook</span>
+                    </a>
+                    <a href="/auth/twitter" class="btn btn-block btn-success">
+                        <span class="pull-left"><i class="fa fa-twitter"></i></span>
+                        <span class="bold">Login with Twitter</span>
+                    </a>
+                    <a href="/auth/linkedIn" class="btn btn-block btn-success">
+                        <span class="pull-left"><i class="fa fa-linkedin"></i></span>
+                        <span class="bold">Login with LinkedIn</span>
+                    </a>-->
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+
+            <div class="tiles grey p-t-20 p-b-20 text-black">
+                <form id="frm_login" class="animated fadeIn" style="@(model.regUser ? 'display: none': '')"
+                      parsley-validate action='/login' method='post'>
+                    <input name="role" type="hidden" value="speaker">
+
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-6 col-sm-6 ">
+                            <input name="email" id="login_username" type="text" class="form-control required"
+                                   placeholder="Email" value=@(model.loginUser?model.loginUser.email:'')>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <input name="password" id="login_pass" type="password" class="form-control required"
+                                   placeholder="Password">
+                        </div>
+
+                    </div>
+
+                    <div class="row p-t-10 m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="control-group col-md-6">
+                            <div class="checkbox checkbox check-success">
+                                <input type="checkbox" name='rememberMe' id="rememberMe" value="1">
+                                <label for="rememberMe">Remember Me</label>
+
+                                <p><a href="#" ng-click="showResetPasswordRequestModal()">Forgot my Password</a></p>
+                            </div>
+                        </div>
+                        <div class="control-group col-md-6">
+                            <button type="submit" class="btn btn-info btn-cons pull-right">Login</button>
+                        </div>
+                    </div>
+                </form>
+
+                <form id="frm_register" class="animated fadeIn" style="@(model.regUser ? '': 'display: none')"
+                      parsley-validate action='/auth/email' method='post'>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-6 col-sm-6">
+                            <input name="firstName" id="reg_first_Name" type="text" class="form-control required"
+                                   placeholder="First Name" value="@(model.regUser ? model.regUser.firstName : '')">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <input name="lastName" id="reg_first_Name" type="text" class="form-control required"
+                                   placeholder="Last Name" value="@(model.regUser ? model.regUser.lastName : '')">
+                        </div>
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-12">
+                            <div class="input-group transparent">
+                                <input name="company" type="text" class="form-control required" placeholder="Company"
+                                       parsley-regexp="^[A-Za-z0-9\.\-_]+$"
+                                       parsley-error-container="#aliasErrorContainer"
+                                       parsley-error-message="Company is required and should consists of alphanumeric symbols, dots, underscores and dashs only."
+                                       value="@(model.regUser ? model.regUser.alias : '')">
+                            </div>
+                            <div id="aliasErrorContainer"></div>
+                        </div>
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-12 ">
+                            <input name="email" id="reg_email" type="email" class="form-control required"
+                                   placeholder="Email" value="@(model.regUser ? model.regUser.email : '')">
+                        </div>
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-6 col-sm-6">
+                            <input name="password" id="reg_password" type="password" class="form-control required"
+                                   placeholder="Password" parsley-minlength="6">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <input name="reg_pass" id="reg_confirm_password" type="password"
+                                   class="form-control required" placeholder="Retype Password"
+                                   parsley-equalto="#reg_password">
+                        </div>
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-6 col-sm-6">
+                            <input name="phone" type="text" class="form-control required" id="phone"
+                                   placeholder="Cell Phone Number"
+                                   pattern="^\+\d\(\d{3}\) ?\d{3}-\d{4}"
+                                   value="@(model.regUser ? model.regUser.phone : '')">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <input name="postalCode" type="text" class="form-control required"
+                                   placeholder="Postal Code"
+                                   parsley-type="digits"
+                                   value="@(model.regUser ? model.regUser.postalCode : '')">
+                            </div>
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-12 col-sm-12">
+                            <input name="domains" type="hidden" id="domains" class="form-control required" tags-input-directive
+                                   placeholder="Domain name"
+                                   value="@(model.regUser ? model.regUser.domains : '')">
+                        </div>
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-info btn-cons pull-right" id="register_toggle">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+@render('../shared/auth-layout',body)

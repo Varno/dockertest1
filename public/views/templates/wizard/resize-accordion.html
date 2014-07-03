@@ -1,0 +1,35 @@
+<div class="col-md-12 col-sm-12">
+    <div class="controls">
+        <div class="col-md-6 col-sm-6">
+            <label class="control-label text-left">Width</label>
+            <input type="text" placeholder="width" number name="resize-width" id="resize-width" data-ng-model="stageModel.constrainWidth.value">
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <label class="control-label text-left">Height</label>
+            <input type="text" placeholder="height" number name="resize-height" id="resize-height" data-ng-model="stageModel.constrainHeight.value">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <label class="control-label text-left m-t-10">Mode</label>
+
+    <div class="controls col-md-12 col-sm-12">
+        <select name="resize-mode" id="resize-mode" data-ng-model="stageModel.constrainMode.value">
+            <option value="" disabled selected>Constraint Mode</option>
+            <option>fit</option>
+            <option>fill</option>
+            <option>original</option>
+        </select>
+    </div>
+    <div class="clearfix"></div>
+    <label class="control-label text-left m-t-10">Background color</label>
+
+    <div class="controls input-append col-md-12 col-sm-12">
+        <input type="text" name="resize-back-color" id="resize-back-color" data-ng-model="stageModel.bgcolor.value"
+               placeholder="Background color" href="#" class="colorpicker"/>
+                            <span class="add-on">
+                                <i data-color-format="hex" data-color="rgb(10, 166, 153)"
+                                   class="my-colorpicker-control" data-colorpicker-guid="8"></i>
+                            </span>
+    </div>
+    <div class="clearfix"></div>
+</div>

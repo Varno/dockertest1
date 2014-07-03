@@ -1,0 +1,136 @@
+﻿@!(model)
+@function styles(){
+    <link href="/assets/others/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        .zeroclipboard-is-hover {
+            cursor: pointer;
+        }
+    </style>
+}
+@function body(){
+    <div class="page-container row-fluid" ng-controller="dashboardController" ng-cloak>
+    <!-- BEGIN PAGE CONTAINER-->
+        <div class="col-md-5" ng-if="!isActivated && loaded && detailsLoaded">
+                <div class="row">
+                    <div ng-include="'/views/profile/profile.html'"></div>
+                </div>
+            </div>
+        <div class="page-title" ng-if="isActivated && loaded">
+                <h2>Image Resizer - <span class="semi-bold">Dashboard</span></h2>
+        </div>
+        <div class="row-fluid" ng-if="isActivated && loaded">
+                <div class="span12">
+                    <ul id="tab" class="nav nav-pills" tab-bable>
+                        <li class="active"><a href="#tabUsedStorage">
+                            <b>{{statistics.storage.usage}} Bytes</b><br/>
+                            Used Storage<br/>
+                            <i ng-if="statistics.storage.limited">({{statistics.storage.usagePercent}}% of plan limit)</i></a></li>
+                        <li class=""><a href="#tabBandwidth">
+                            <span class="semi-bold">{{statistics.bandwidth.usage}} Bytes</span><br/>
+                            Bandwidth<br/>
+                            <i ng-if="statistics.bandwidth.limited">({{statistics.bandwidth.usagePercent}}% of plan limit)</i></a></li>
+                        <li class=""><a href="#tabRequests">
+                            <b>{{statistics.hits.usage}}</b><br/>
+                            <span class="semi-bold">{{statistics.requests}}</span>
+                            Requests (30 days)<br/>
+                            <i ng-if="statistics.hits.limited">({{statistics.hits.usagePercent}}% of plan limit)</i></a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tabUsedStorage" class="tab-pane active">
+                            <div class="row">
+                                <p>
+                                    Chart for Used Storage
+                                </p>
+                                <div class="chart-container" chart data-label-name="Used Storage" data-statistic-name="storage"></div>
+                            </div>
+                        </div>
+                        <div id="tabBandwidth" class="tab-pane">
+                            <div class="row">
+                                <p>
+                                    Chart for Bandwidth
+                                </p>
+                                <div class="chart-container" chart data-label-name="Bandwidth" data-statistic-name="bandwidth"></div>
+                            </div>
+                        </div>
+                        <div id="tabRequests" class="tab-pane">
+                            <div class="row">
+                                <p>
+                                    Chart for Requests
+                                </p>
+                                <div class="chart-container" chart data-label-name="Requests" data-statistic-name="hits"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+}
+
+@function scripts(){
+    <script src="/assets/others/plugins/jquery-flot/jquery.flot.js"></script>
+    <script src="/assets/others/plugins/jquery-flot/jquery.flot.time.min.js"></script>
+    <script src="/assets/others/plugins/jquery-flot/jquery.flot.selection.min.js"></script>
+    <script src="/assets/others/plugins/jquery-flot/jquery.flot.animator.min.js"></script>
+    <!-- End Plugins -->
+
+    <!-- Application -->
+    <script type="text/javascript" src="/application/directives/loaderDirective.js"></script>
+    <script type="text/javascript" src="/application/directives/preventClickDirective.js"></script>
+    <script type="text/javascript" src="/application/directives/popoverHtmlDirective.js"></script>
+    <script type="text/javascript" src="/application/directives/ng-table.js"></script>
+    <script type="text/javascript" src="/application/directives/serviceUsageChartDirective.js"></script>
+    <script type="text/javascript" src="/application/directives/clipboardCopy.js"></script>
+    <script type="text/javascript" src="/application/directives/tabBable.js"></script>
+    <script type="text/javascript" src="/application/angular-directives/dashboard-directives.js"></script>
+    <script type="text/javascript" src="/application/config.js"></script>
+
+    <script type="text/javascript" src="/application/services/securityService.js"></script>
+    <script type="text/javascript" src="/application/services/notificationService.js"></script>
+    <script type="text/javascript" src="/application/services/activationService.js"></script>
+    <script type="text/javascript" src="/application/services/dashboardService.js"></script>
+    <script type="text/javascript" src="/application/controllers/dashboardController.js"></script>
+    <script type="text/javascript" src="/application/angular-apps/dashboard.js"></script>
+    <!-- End Application -->
+    <script>
+        var heap = heap || [];
+        heap.load = function (a) {
+            window._heapid = a;
+            var b = document.createElement("script");
+            b.type = "text/javascript", b.async = !0, b.src = ("https:" === document.location.protocol ? "https:" : "http:") + "//cdn.heapanalytics.com/js/heap.js";
+            var c = document.getElementsByTagName("script")[0];
+            c.parentNode.insertBefore(b, c);
+            var d = function (a) {
+                return function () {
+                    heap.push([a].concat(Array.prototype.slice.call(arguments, 0)))
+                }
+            }, e = ["identify", "track"];
+            for (var f = 0; f < e.length; f++) heap[e[f]] = d(e[f])
+        };
+        heap.load("335729428");
+    </script>
+    <script>
+        window.Airbrake = [];
+        window.Airbrake.try = function (fn) {
+            try {
+                fn()
+            } catch (er) {
+                window.Airbrake.push(er);
+            }
+        };
+    </script>
+    <script defer src="https://ssljscdn.airbrake.io/airbrake-js-tracekit.min.js"
+            data-airbrake-project-id="96833"
+            data-airbrake-project-key="dbce9581fb5b43792e52161eeb99175c"
+            data-airbrake-project-environment-name="production"></script>
+    <script type="text/ng-template" id="custom/pager">
+        <ul class="pager ng-cloak">
+            <li ng-repeat="page in pages"
+                ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}"
+                ng-show="page.type == 'prev' || page.type == 'next'" ng-switch="page.type">
+                <a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo; Previous</a>
+                <a ng-switch-when="next" ng-click="params.page(page.number)" href="">Next &raquo;</a>
+            </li>
+        </ul>
+    </script>
+}
+@render('../shared/layout',body,model,styles,scripts)

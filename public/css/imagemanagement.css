@@ -1,0 +1,245 @@
+.modal{
+    width:0;
+    height:0;
+}
+.modal-dialog{
+    position: fixed;
+    margin-top: 90px;
+    margin-left: -1000px;
+}
+
+.modal-content{
+    left:1000px;
+}
+.colorpicker.dropdown-menu{
+    z-index: 5000;
+}
+.panel-body{
+    background-color: #fff;
+    min-height:100px;
+}
+.panel-body input, .panel-body select {
+    height: 25px !important;
+    min-height: 25px !important;
+    padding: 3px !important;
+    width: 100%;
+    font-size: 11px;
+}
+
+.panel-body span.add-on {
+    background-color: #fff;
+    border: 1px solid #e5e9ec;
+    border-left: none;
+    padding: 3px;
+    top: 1px;
+}
+
+.panel-body span.add-on i {
+    background-color: rgb(10, 166, 153);
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.panel-body input.colorpicker {
+    min-height: 37px !important;
+    color: #000;
+}
+
+.control-label {
+    display: block;
+}
+
+.panel-body .col-md-12 {
+    padding-left: 0;
+}
+
+.control-label {
+    text-transform: uppercase;
+}
+
+.panel-body > .col-sm-12 > .control-label {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.panel-body .slider input{
+    display: none;
+}
+
+.stack-left .control-label {
+    float: left;
+    width: 25%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.stack-left input {
+    width: 50%;
+    float: right;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.border-radius {
+    display: table;
+}
+
+.border-radius table {
+    width: 100%;
+    height: 100%;
+}
+
+.border-radius table tr.middle-row td:nth-child(2) {
+    width: 80%;
+    height: 80%;
+}
+
+.border-radius div.rectangle {
+    border: 1px solid #000;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    min-height: 100px;
+}
+
+.border-radius div.rectangle input {
+    position: relative;
+    top: 50%;
+    width: 70%;
+    margin: -10px auto 0 auto;
+    display: block;
+}
+
+#all-borders-radius, #all-borders-radius:hover, #all-borders-radius:active {
+    height: 40px;
+    min-height: 40px;
+    background-color: #fff;
+}
+
+.panel-body .fullwidth{
+    width:100%;
+}
+.panel-body .halfwidth{
+    width:50%;
+    min-width: 50%;
+}
+.panel-body .quarterwidth{
+    width:25%;
+    min-width: 25%;
+}
+.panel-body .fullwidth-slider .slider.slider-horizontal{
+    width:100%;
+}
+.panel-body .sixtywidth-slider .slider.slider-horizontal{
+    width:60%;
+}
+.panel-body .halfwidth-slider .slider.slider-horizontal{
+    width:50%;
+}
+.panel-body .quarterwidth-slider .slider.slider-horizontal{
+    width:25%;
+}
+.panel-body .pull-right-slider .slider.slider-horizontal{
+    float:right;
+}
+.panel-body .pull-left-slider .slider.slider-horizontal{
+    float:left;
+}
+.col-md-12, .col-sm-12, .col-md-8, .col-sm-8, .col-md-4, .col-sm-4, .col-sm-6, .col-md-6,.col-sm-5, .col-md-5{
+    padding-left: 0;
+}
+/*    .panel-body .col-md-6, .panel-body .col-sm-6 {
+        padding-left: 0;
+    }*/
+.rotate-container label.button {
+    display: block;
+    cursor: pointer;
+    min-width: 25px;
+    min-height: 25px;
+    text-align: center;
+}
+
+.rotate-container label.button:hover {
+    background-color: #efefef;
+}
+
+.rotate-container label.selected {
+    background-color: #ccc;
+}
+
+.input_hidden {
+    position: absolute;
+    left: -9999px;
+}
+.panel-body input[type=radio]{
+    float:left;
+    width:auto;
+}
+.bitness label {
+    float: left;
+    margin: 3px 0 0 10px;
+}
+
+
+.controls.mask{
+    margin-top: 5px;
+}
+
+.controls.mask label{
+    width: 20%;
+}
+
+.controls.mask input{
+    width: 80%;
+}
+
+.draggable-container{
+    position: absolute !important;
+}
+
+.panel-group .panel-body{
+    height: auto !important;
+}
+
+.panel-group #wizard-accordion .rectangle
+{
+    height: 200px;
+}
+
+.resized{
+    position: absolute;
+}
+
+.colorpicker{
+    z-index: 10000;
+}
+
+.panel-group .panel .panel-heading{
+    cursor: pointer;
+}
+.page-container .resized-image-url{
+    cursor: pointer;
+    z-index: 100000;
+}
+
+.border-radius div.rectangle input {
+    display: block;
+    left: 25%;
+    margin: -10px 0px 0px -10px;
+    position: absolute;
+    top: 50%;
+    width: 50%;
+}
+
+.border-radius {
+    display: table;
+    margin-left: 8px;
+}
+
+.rotate-prefix{
+    position:absolute;
+    left:160px;
+    top:3px;
+}

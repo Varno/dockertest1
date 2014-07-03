@@ -1,0 +1,231 @@
+﻿.display-none{
+    display: none;
+}
+
+.m {
+  margin: 15px;
+}
+.m-n {
+  margin: 0;
+}
+.m-l {
+  margin-left: 15px;
+}
+.m-l-none {
+  margin-left: 0;
+}
+.m-l-xs {
+  margin-left: 5px;
+}
+.m-l-sm {
+  margin-left: 10px;
+}
+.m-l-lg {
+  margin-left: 20px;
+}
+.m-l-n {
+  margin-left: -15px;
+}
+.m-l-n-xxs {
+  margin-left: -1px;
+}
+.m-l-n-xs {
+  margin-left: -5px;
+}
+.m-l-n-sm {
+  margin-left: -10px;
+}
+.m-l-n-lg {
+  margin-left: -20px;
+}
+.m-t {
+  margin-top: 15px;
+}
+.m-t-none {
+  margin-top: 0;
+}
+.m-t-xxs {
+  margin-top: 1px;
+}
+.m-t-xs {
+  margin-top: 5px;
+}
+.m-t-sm {
+  margin-top: 10px;
+}
+.m-t-lg {
+  margin-top: 20px;
+}
+.m-t-n {
+  margin-top: -15px !important;
+}
+.m-t-n-xxs {
+  margin-top: -1px;
+}
+.m-t-n-xs {
+  margin-top: -5px;
+}
+.m-t-n-sm {
+  margin-top: -10px;
+}
+.m-t-n-lg {
+  margin-top: -20px;
+}
+.m-r {
+  margin-right: 15px;
+}
+.m-r-none {
+  margin-right: 0;
+}
+.m-r-xs {
+  margin-right: 5px;
+}
+.m-r-sm {
+  margin-right: 10px;
+}
+.m-r-lg {
+  margin-right: 20px;
+}
+.m-r-n {
+  margin-right: -15px;
+}
+.m-r-n-xxs {
+  margin-right: -1px;
+}
+.m-r-n-xs {
+  margin-right: -5px;
+}
+.m-r-n-sm {
+  margin-right: -10px;
+}
+.m-r-n-lg {
+  margin-right: -20px;
+}
+.m-b {
+  margin-bottom: 15px;
+}
+.m-b-none {
+  margin-bottom: 0;
+}
+.m-b-xs {
+  margin-bottom: 5px;
+}
+.m-b-sm {
+  margin-bottom: 10px;
+}
+.m-b-lg {
+  margin-bottom: 20px;
+}
+.m-b-n {
+  margin-bottom: -15px;
+}
+.m-b-n-xxs {
+  margin-bottom: -1px;
+}
+.m-b-n-xs {
+  margin-bottom: -5px;
+}
+.m-b-n-sm {
+  margin-bottom: -10px;
+}
+.m-b-n-lg {
+  margin-bottom: -20px;
+}
+
+.p-sm{
+    padding: 10px;
+}
+
+.overflow-auto{
+    overflow: auto;
+}
+
+.parsley-no-message .parsley-error-list{
+    display: none;
+}
+
+.parsley-error-list li{
+    margin-left: -45px;
+    margin-bottom: 10px;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.bg-gray{
+    background: #F8F8F8;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.width-100{
+    width: 100%!important;
+}
+
+.loader-container .pace-activity{
+    display: inline-block;
+    z-index: 2000;
+    width: 14px;
+    height: 14px;
+    border: solid 2px transparent;
+    border-top-color: #0aa699;
+    border-left-color: #0aa699;
+    border-radius: 10px;
+    -webkit-animation: pace-spinner 400ms linear infinite;
+    -moz-animation: pace-spinner 400ms linear infinite;
+    -ms-animation: pace-spinner 400ms linear infinite;
+    -o-animation: pace-spinner 400ms linear infinite;
+    animation: pace-spinner 400ms linear infinite;
+}
+
+.loader-container.center{
+    text-align: center;
+}
+
+.loader-container.center .pace-activity{
+    top: 50%;
+}
+
+.z-index-1{
+    z-index: 1;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 999px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.cursor-pointer{
+    cursor:pointer;
+}
+
+/* Fix for popover arrows */
+
+.popover.right .arrow{
+    border-right-color:transparent;
+}
+.popover.left .arrow{
+    border-right-color:transparent;
+}
+
+.popover.top .arrow{
+    border-right-color:transparent;
+}

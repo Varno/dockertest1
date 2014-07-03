@@ -1,0 +1,602 @@
+@!(model)
+@function styles(){
+<link rel="stylesheet" type="text/css" href="/assets/others/plugins/jquery-image-cropper/cropper.css">
+<script type="text/javascript" src="/assets/others/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.css"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<link href="/assets/others/plugins/boostrap-slider/css/slider.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/others/plugins/boostrap-slider/css/colored.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/others/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet"
+      type="text/css"/>
+<link href="/assets/others/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" media="screen">
+<style type="text/css">
+    .ui-accordion-content input, .ui-accordion-content select {
+        height: 25px !important;
+        min-height: 25px !important;
+        padding: 3px !important;
+        width: 100%;
+        font-size: 11px;
+    }
+
+    .ui-accordion-content span.add-on {
+        background-color: #fff;
+        border: 1px solid #e5e9ec;
+        border-left: none;
+        padding: 3px;
+        top: 1px;
+    }
+
+    .ui-accordion-content span.add-on i {
+        background-color: rgb(10, 166, 153);
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    .ui-accordion-content input.colorpicker {
+        min-height: 37px !important;
+        color: #000;
+    }
+
+    .control-label {
+        display: block;
+    }
+
+    .ui-accordion-content .col-md-12 {
+        padding-left: 0;
+    }
+
+    .control-label {
+        text-transform: uppercase;
+    }
+
+    .ui-accordion-content > .col-sm-12 > .control-label {
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    .ui-accordion-content .slider input{
+        display: none;
+    }
+
+    .stack-left .control-label {
+        float: left;
+        font-size: 12px;
+        width: 40%;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .stack-left input {
+        width: 50%;
+        float: right;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .border-radius {
+        display: table;
+    }
+
+    .border-radius table {
+        width: 100%;
+        height: 100%;
+    }
+
+    .border-radius table tr.middle-row td:nth-child(2) {
+        width: 80%;
+        height: 80%;
+    }
+
+    .border-radius div.rectangle {
+        border: 1px solid #000;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .border-radius div.rectangle input {
+        position: relative;
+        top: 50%;
+        width: 70%;
+        margin: -10px auto 0 auto;
+        display: block;
+    }
+
+    #all-borders-radius, #all-borders-radius:hover, #all-borders-radius:active {
+        height: 40px;
+        min-height: 40px;
+        background-color: #fff;
+    }
+
+    .ui-accordion-content .fullwidth{
+        width:100%;
+    }
+    .ui-accordion-content .halfwidth{
+        width:50%;
+        min-width: 50%;
+    }
+    .ui-accordion-content .quarterwidth{
+        width:25%;
+        min-width: 25%;
+    }
+    .ui-accordion-content .fullwidth-slider .slider.slider-horizontal{
+        width:100%;
+    }
+    .ui-accordion-content .sixtywidth-slider .slider.slider-horizontal{
+        width:60%;
+    }
+    .ui-accordion-content .halfwidth-slider .slider.slider-horizontal{
+        width:50%;
+    }
+    .ui-accordion-content .quarterwidth-slider .slider.slider-horizontal{
+        width:25%;
+    }
+    .ui-accordion-content .pull-right-slider .slider.slider-horizontal{
+        float:right;
+    }
+    .ui-accordion-content .pull-left-slider .slider.slider-horizontal{
+        float:left;
+    }
+    .col-md-12, .col-sm-12, .col-md-8, .col-sm-8, .col-md-4, .col-sm-4, .col-sm-6, .col-md-6,.col-sm-5, .col-md-5{
+        padding-left: 0;
+    }
+/*    .ui-accordion-content .col-md-6, .ui-accordion-content .col-sm-6 {
+        padding-left: 0;
+    }*/
+    .rotate-container label.button {
+        display: block;
+        cursor: pointer;
+        min-width: 25px;
+        min-height: 25px;
+        text-align: center;
+    }
+
+    .rotate-container label.button:hover {
+        background-color: #efefef;
+    }
+
+    .rotate-container label.selected {
+        background-color: #ccc;
+    }
+
+    .input_hidden {
+        position: absolute;
+        left: -9999px;
+    }
+    .ui-accordion-content input[type=radio]{
+        float:left;
+        width:auto;
+    }
+    .bitness label {
+        float: left;
+        margin: 3px 0 0 10px;
+    }
+</style>
+}
+
+@function scripts(){
+<script type="text/javascript" src="/assets/others/plugins/jquery-image-cropper/cropper.js"></script>
+<script type="text/javascript" src="/assets/others/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
+<script src="/assets/others/plugins/jquery-slider/jquery.sidr.min.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/boostrap-slider/js/bootstrap-slider.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/switchery/switchery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        applyInitialPosition();
+        $("#draggable-container").draggable({ containment: ".page-content", scroll: false });
+        $("#wizard-accordion").accordion({
+            activate: function (event, ui) {
+                var image = $('#preview');
+                if ('crop-container' !== ui.newPanel.prop('id')) {
+                    image.cropper("disable");
+                    return;
+                }
+                image.cropper({
+                    aspectRatio: "auto",
+                    done: function (data) {
+                        $('#top-left').val(data.x1 + ',' + data.y1);
+                        $('#top-right').val((data.x1 + data.width) + ',' + data.y1);
+                        $('#bottom-left').val((data.x2 - data.width) + ',' + data.y2);
+                        $('#bottom-right').val(data.x2 + ',' + data.y2);
+                        $('#crop-width').val(data.width);
+                        $('#crop-height').val(data.height);
+                    }
+                });
+                image.cropper("enable");
+            }
+        });
+        $('.my-colorpicker-control').colorpicker().on('changeColor', function (ev) {
+            var $this = $(this),
+                    i = $this.parent().find('i'),
+                    input = $this.parent().parent().find('input');
+            i.css({backgroundColor: ev.color.toHex()});
+            input.val(ev.color.toHex());
+        });
+        $('.border-radius input').bind('keyup', function (event) {
+            var $this = $(event.target),
+                    $rectangle = $('.border-radius .rectangle'),
+                    id = $this.prop('id'),
+                    val = $this.val();
+            switch (id) {
+                case "left-top-radius":
+                    setBorderRadius($rectangle, 'TopLeft', val);
+                    break;
+                case "right-top-radius":
+                    setBorderRadius($rectangle, 'TopRight', val);
+                    break;
+                case "left-bottom-radius":
+                    setBorderRadius($rectangle, 'BottomLeft', val);
+                    break;
+                case "right-bottom-radius":
+                    setBorderRadius($rectangle, 'BottomRight', val);
+                    break;
+                case "all-borders-radius":
+                    $('.border-radius input').val(val);
+                    setBorderRadius($rectangle, '', val);
+                    break;
+            }
+        });
+        $('.slider-element').slider().on('slide', function(ev){
+            $(this).parent().parent().next().find('input').val(ev.value);
+        });
+        $('.rotate-container label.button').click(function() {
+            $(this).addClass('selected').siblings().removeClass('selected');
+        });
+        initSwitchers();
+    });
+
+    function applyInitialPosition() {
+        var preview = $('#preview'),
+                imgWidth = preview.outerWidth(),
+                imgRectangle = preview.position(),
+                imgRight = imgRectangle.left + imgWidth,
+                imgTop = imgRectangle.top - preview.outerHeight(),
+                draggableContainer = $('#draggable-container'),
+                draggableWidth = draggableContainer.outerWidth(),
+                containerWidth = $('.container').width();
+        if (imgWidth + draggableWidth <= containerWidth) {
+            draggableContainer.css({left: imgRight + 10, top: imgTop})
+        } else {
+            draggableContainer.css({left: imgRight - 20 - draggableWidth, top: imgTop + 20})
+        }
+    }
+
+    function setBorderRadius(rectangle, side, value) {
+        var key = 'border' + side + 'Radius',
+                radius = parseInt(value),
+                valid = !!radius,
+                css = {};
+        if (!valid)
+            css[key] = '0px';
+        else
+            css[key] = radius + 'px';
+        console.log(css);
+        rectangle.css(css);
+    }
+    function initSwitchers(){
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+        elems.forEach(function (html) {
+            var offColor = html.attributes['off-color'] || '#0b9c8f',
+                    onColor = html.attributes['on-color'] || '#41b7f1';
+            if(typeof offColor !== 'string')
+                offColor = offColor.value;
+            if(typeof onColor !== 'string')
+                onColor = onColor.value;
+            if(offColor == '#fff')
+                offColor = null;
+            if(onColor == '#fff')
+                onColor = null;
+            var compiledClass = html.attributes['compiled-class'] || 'switchery';
+            if(typeof compiledClass !== 'string')
+                compiledClass='switchery ' + compiledClass.value;
+            var switchery = new Switchery(html, {color: onColor, secondaryColor:offColor, className: compiledClass });
+            html.onchange = function () {
+
+            }
+        });
+    }
+</script>
+}
+
+@function body() {
+<div class="container">
+    <div class="col-md-12 col-sm-12">
+        <img src="/images/samples/cherry-fruit.jpg" id="preview">
+
+        <div id="draggable-container" class="col-md-4 col-sm-4">
+            <div id="wizard-accordion">
+                <h3>Source img</h3>
+
+                <div class="col-md-12 col-sm-12">
+                    <label class="control-label text-left">Source image url</label>
+
+                    <div class="controls">
+                        <input type="text">
+                    </div>
+                </div>
+                <h3>Crop</h3>
+
+                <div class="col-md-12 col-sm-12" id="crop-container">
+                    <div class="controls">
+                        <div class="col-md-6 col-sm-6">
+                            <label class="control-label text-left">Width</label>
+                            <input type="text" placeholder="width" name="crop-width" id="crop-width">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label class="control-label text-left">Height</label>
+                            <input type="text" placeholder="height" name="crop-height" id="crop-height">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <label class="control-label text-left">Coordinates</label>
+
+                    <div class="controls stack-left">
+                        <div class="col-md-6 col-sm-6">
+                            <label class="control-label text-left">Top Left</label>
+                            <input type="text" placeholder="x,y" id="top-left" name="top-left">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label class="control-label text-left">Top Right</label>
+                            <input type="text" placeholder="x,y" id="top-right" name="top-right">
+                        </div>
+                    </div>
+                    <div class="controls stack-left">
+                        <div class="col-md-6 col-sm-6">
+                            <label class="control-label text-left">Bottom Left</label>
+                            <input type="text" placeholder="x,y" id="bottom-left" name="bottom-left">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label class="control-label text-left">Bottom Right</label>
+                            <input type="text" placeholder="x,y" id="bottom-right" name="bottom-right">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <h3>Resize</h3>
+                <div class="col-md-12 col-sm-12">
+                    <div class="controls">
+                        <div class="col-md-6 col-sm-6">
+                            <label class="control-label text-left">Width</label>
+                            <input type="text" placeholder="width" name="resize-width" id="resize-width">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label class="control-label text-left">Height</label>
+                            <input type="text" placeholder="height" name="resize-height" id="resize-height">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <label class="control-label text-left m-t-10">Mode</label>
+
+                    <div class="controls col-md-12 col-sm-12">
+                        <select name="resize-mode" id="resize-mode">
+                            <option value="" disabled selected>Constraint Mode</option>
+                            <option>fit</option>
+                            <option>fill</option>
+                            <option>original</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                    <label class="control-label text-left m-t-10">Background color</label>
+
+                    <div class="controls input-append col-md-12 col-sm-12">
+                        <input type="text" name="resize-back-color" id="resize-back-color"
+                               placeholder="Background color" href="#" class="colorpicker"/>
+                            <span class="add-on">
+                                <i data-color-format="hex" data-color="rgb(10, 166, 153)"
+                                   class="my-colorpicker-control" data-colorpicker-guid="8"></i>
+                            </span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <h3>Borders</h3>
+
+                <div class="col-md-12 col-sm-12 border-radius">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="text" id="left-top-radius" name="left-top-radius">
+                            </td>
+                            <td></td>
+                            <td>
+                                <input type="text" id="right-top-radius" name="right-top-radius">
+                            </td>
+                        </tr>
+                        <tr class="middle-row">
+                            <td></td>
+                            <td>
+                                <div class="rectangle">
+                                    <input type="text" id="all-borders-radius" placeholder="All Borders">
+                                </div>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" id="left-bottom-radius" name="left-bottom-radius">
+                            </td>
+                            <td></td>
+                            <td>
+                                <input type="text" id="right-bottom-radius" name="right-bottom-radius">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <h3>Effects</h3>
+                <div class="col-md-12 col-sm-12">
+                    <div class="controls stack-left">
+                        <div class="col-md-8 col-sm-8 sixtywidth-slider pull-right-slider">
+                            <label class="control-label text-left">Blur</label>
+                            <input type="text" class="slider-element form-control"
+                                   data-slider-value="10" data-slider-step="1"
+                                   data-slider-min="0" data-slider-max="100"
+                                   data-slider-orientation="horizontal"
+                                   data-slider-selection="after"
+                                   data-slider-tooltip="hide">
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <input type="text" class="fullwidth" id="blur" name="blur" value="10">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <label class="control-label text-left">Shadow color</label>
+                    <div class="controls input-append col-md-12 col-sm-12">
+                        <input type="text" name="shadow-back-color" id="shadow-back-color"
+                               placeholder="Color" href="#" class="colorpicker"/>
+                            <span class="add-on">
+                                <i data-color-format="hex" data-color="rgb(10, 166, 153)"
+                                   class="my-colorpicker-control" data-colorpicker-guid="8"></i>
+                            </span>
+                    </div>
+                    <div class="controls">
+                        <div class="col-md-6 col-sm-6 sixtywidth-slider pull-left-slider">
+                            <label class="control-label text-left">Blur</label>
+                            <input type="text" class="slider-element form-control"
+                                   data-slider-value="100" data-slider-step="1"
+                                   data-slider-min="0" data-slider-max="1000"
+                                   data-slider-orientation="horizontal"
+                                   data-slider-selection="after"
+                                   data-slider-tooltip="hide">
+                            <input type="text" name="shadow-blur" id="shadow-blur" class="pull-right quarterwidth" value="100">
+                        </div>
+                        <div class="col-md-6 col-sm-6 sixtywidth-slider pull-left-slider">
+                            <label class="control-label text-left">Direction</label>
+                            <input type="text" class="slider-element form-control"
+                                   data-slider-value="10" data-slider-step="1"
+                                   data-slider-min="0" data-slider-max="100"
+                                   data-slider-orientation="horizontal"
+                                   data-slider-selection="after"
+                                   data-slider-tooltip="hide">
+                            <input type="text" id="shadow-direction" name="shadow-direction" value="10" class="pull-right quarterwidth">
+                        </div>
+                    </div>
+                    <div class="controls stack-left">
+                        <div class="col-md-8 col-sm-8 rotate-container">
+                            <label class="control-label text-left">Rotate</label>
+                            <input type="radio" name="rotate" id="counterclockwise" value="rotate-counterclockwise" class="input_hidden" /><label title="Rotate counterclockwise" for="counterclockwise" class="pull-left button"><i class="fa fa-rotate-left fa-2x"></i></label>
+                            <input type="radio" name="rotate" id="clockwise" value="rotate-clockwise" class="input_hidden" /><label title="Rotate clockwise" for="clockwise" class="pull-left button m-l-10"><i class="fa fa-rotate-right fa-2x"></i></label>
+                            <span class="pull-left p-l-5 p-r-5 p-t-5">or</span>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <input type="text" class="fullwidth" id="blur" name="blur" value="10">
+                        </div>
+                    </div>
+                    <div class="controls stack-left">
+                        <div class="col-md-8 col-sm-8 rotate-container">
+                            <label class="control-label text-left">Flip</label>
+                            <input type="radio" name="flip-horizontal" id="flip-horizontal" value="flip-horizontal" class="input_hidden" /><label title="Flip horizontal" for="counterclockwise" class="pull-left button"><i class="fa fa-arrows-h fa-flip-horizontal fa-2x"></i></label>
+                            <input type="radio" name="flip" id="flip-vertical" value="flip-vertical" class="input_hidden" /><label title="Flip vertical" for="clockwise" class="pull-left button m-l-10"><i class="fa fa-arrows-v fa-2x"></i></label>
+                        </div>
+                    </div>
+                    <div class="controls stack-left">
+                        <div class="col-md-6 col-sm-6 rotate-container">
+                            <label class="control-label text-left">Invert</label>
+                            <input type="checkbox" name="invert" id="invert" class="js-switch" off-color="#fff" compiled-class="pull-right"/>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label class="control-label text-left">Mask</label>
+                            <input type="text" name="mask-image-url" id="mask-image-url">
+                        </div>
+                    </div>
+                </div>
+                <h3>Smartfill</h3>
+                <div class="col-md-12 col-sm-12">
+                    <div class="controls">
+                        <div class="halfwidth">
+                            <label class="control-label text-left">Replicating color</label>
+                        </div>
+                        <div class="input-append col-md-6 col-sm-6">
+                            <input type="text" name="replicating-color" id="edgefill-replicating-color"
+                                   placeholder="Color" href="#" class="colorpicker halfwidth"/>
+                            <span class="add-on">
+                                <i data-color-format="hex" data-color="rgb(10, 166, 153)"
+                                   class="my-colorpicker-control" data-colorpicker-guid="8"></i>
+                            </span>
+                        </div>
+                        <!-- !!Hack!! Replace once figure it out -->
+                        <div class="halfwidth pull-right" style="margin-top:-45px">
+                            <label class="control-label text-left">Target color</label>
+                        </div>
+                        <div class="input-append col-md-6 col-sm-6">
+                            <input type="text" name="shadow-back-color" id="edgefill-target-color"
+                                   placeholder="Color" href="#" class="colorpicker halfwidth"/>
+                            <span class="add-on">
+                                <i data-color-format="hex" data-color="rgb(10, 166, 153)"
+                                   class="my-colorpicker-control" data-colorpicker-guid="8"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <label class="control-label text-left">Threshold</label>
+                    <div class="col-md-12 col-sm-12">
+                        <input type="text" class="slider-element form-control"
+                               name="edge-fill-threshold" id="edge-fill-threshold"
+                               data-slider-value="10" data-slider-step="1"
+                               data-slider-min="0" data-slider-max="100"
+                               data-slider-orientation="horizontal"
+                               data-slider-selection="after"
+                               data-slider-tooltip="hide">
+                    </div>
+                    <div class="clearfix"></div>
+                    <label class="control-label text-left">Flood</label>
+                    <div class="controls">
+                        <div class="halfwidth">
+                            <label class="control-label text-left">Point</label>
+                        </div>
+                        <div class="input-append col-md-6 col-sm-6">
+                            <input type="text" name="flood-point" id="flood-point"
+                                   placeholder="Color"/>
+                        </div>
+                        <!-- !!Hack!! Replace once figure it out -->
+                        <div class="halfwidth pull-right" style="margin-top:-35px">
+                            <label class="control-label text-left">Target color</label>
+                        </div>
+                        <div class="input-append col-md-6 col-sm-6">
+                            <input type="text" name="flood-color" id="flood-color"
+                                   placeholder="Color" href="#" class="colorpicker halfwidth"/>
+                            <span class="add-on">
+                                <i data-color-format="hex" data-color="rgb(10, 166, 153)"
+                                   class="my-colorpicker-control" data-colorpicker-guid="8"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <h3>Output</h3>
+                <div class="col-md-12 col-sm-12">
+                    <label class="control-label text-left">Format</label>
+                    <div class="controls">
+                        <select name="output-format" id="output-format">
+                            <option>jpg</option>
+                            <option>png</option>
+                            <option>gif</option>
+                        </select>
+                    </div>
+                    <label class="control-label text-left m-t-10">Pixel depth</label>
+                    <div class="controls bitness">
+                        <input type="radio" name="pixel-depth" id="pixel-depth-8"><label for="pixel-depth-8">8 bit</label>
+                        <div class="clearfix"></div>
+                        <input type="radio" name="pixel-depth" id="pixel-depth-24"><label for="pixel-depth-24">24 bit</label>
+                        <div class="clearfix"></div>
+                        <input type="radio" name="pixel-depth" id="pixel-depth-32"><label for="pixel-depth-32">32 bit</label>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="controls">
+                        <div class="col-md-6 col-sm-6">
+                            <label class="control-label text-left">Optimization</label>
+                            <input type="text" name="optimization" id="optimization">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <label class="control-label text-left">Compression</label>
+                            <input type="text" name="compression" id="compression">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+@render('../shared/layout',body,model,styles,scripts)

@@ -1,0 +1,27 @@
+<div id="modal-header" class="modal-header">
+<button type="button" class="close" aria-hidden="true" ng-click="cancel()">&times;</button>
+
+<h4><strong>Create Job</strong></h4>
+<h5>Please enter job name</h5>
+</div>
+<form name="form" parsley-validate submit-valid-only="update()" novalidate>
+    <div class="modal-body bg-gray no-border">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="alert alert-error" ng-show="errorMessage">
+                    {{ errorMessage }}
+                </div>
+                <input name="name"
+                       type="text"
+                       class="form-control required"
+                       placeholder="Job Name"
+                       ng-model="$parent.event.name"
+                       focus-me="true">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" type="button" ng-click="cancel()">Close</button>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </div>
+</form>

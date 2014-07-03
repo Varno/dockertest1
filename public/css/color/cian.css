@@ -1,0 +1,198 @@
+/* ==================================================================
+GLOBAL STYLES
+================================================================== */
+a,
+a:hover,
+a:focus,
+a:active {
+	color:#00cccc;
+}
+
+/* ==================================================================
+TYPOGRAPHY
+================================================================== */
+
+em {
+	color:#00cccc;
+}
+
+/* ==================================================================
+HEADING
+================================================================== */
+.heading span.line {
+	border-bottom: 2px solid #00cccc;
+}
+
+/* ==================================================================
+FIXED NAVBAR
+================================================================== */
+ul.nav li a::before,
+ul.nav li a::after,
+ul.nav li a:hover::before,
+ul.nav li a:hover::after,
+ul.nav li a:focus::before,
+ul.nav li a:focus::after,
+ul.nav li.active a::before,
+ul.nav li.active a::after,
+ul.nav li.active a{
+	color:#00cccc;
+}
+
+/* ==================================================================
+BRAND - NAVBAR, HOMEPAGE, FOOTER
+================================================================== */
+footer h1.logo {
+	color:rgba(0, 204, 204, .7);
+}
+
+/* ==================================================================
+SECTIONS
+================================================================== */
+#spotlight1, #speakers, #blog{
+	border-top: 1px solid #bff2f2;
+	background: #fff url(../../images/patterns/pattern_cian.png) repeat;
+}
+
+/* ==================================================================
+HOMEPAGE
+================================================================== */
+.intro .btn-lg:hover,
+.intro .learn{
+	border-color: #00cccc;
+	background: #00cccc;
+}
+
+.intro .learn:hover{
+	color: #00cccc;
+}
+
+/* ==================================================================
+FEATURES
+================================================================== */
+.hi-icon-effect .hi-icon:after {
+	background: #00cccc;
+}
+
+.features-desc:hover h4 {
+	color: #00cccc;
+}
+
+/* ==================================================================
+SPOTLIGHT 1
+================================================================== */
+.spotlight-link:hover{
+	border-color: #00cccc;
+	background: #00cccc;
+}
+
+/* ==================================================================
+NEWSLETTER
+================================================================== */
+.subs-submit,
+.subs-submit:hover,
+.subs-submit:focus,
+.subs-submit:active{
+	border-color: #00cccc;
+	background: #00cccc;
+}
+
+/* ==================================================================
+GALLERY
+================================================================== */
+a.thumbnail:hover{
+	border-color: #00cccc;
+}
+
+a.thumbnail div {
+	background: rgba(0,170,170,0.75);
+}
+
+/* ==================================================================
+SPOTLIGHT 2
+================================================================== */
+.spotlight-features li:hover .hi-icon-2 {
+	background: #00cccc;
+	box-shadow: 0 0 0 2px #00cccc;
+}
+
+.spotlight-features li:hover p strong {
+	color: #00cccc;
+}
+
+.spotlight-link:hover{
+	border-color: #00cccc;
+	background: #00cccc;
+}
+
+/* ==================================================================
+COMMENTS
+================================================================== */
+#comments .icon-title {
+	background: #00cccc;
+}
+
+/* ==================================================================
+PRICES
+================================================================== */
+.circle-price{
+	background: #00cccc;
+}
+
+.buy-now a:hover{
+	border-color: #00cccc;
+	background: #00cccc;
+}
+
+/* ==================================================================
+BLOG
+================================================================== */
+.post .thumbnail:hover{
+	border-color: #00cccc;
+}
+
+.mask-overlay{
+	background: #00aaaa;
+}
+
+a.more:hover,
+a.more-posts:hover{
+	border-color: #00cccc;
+	background: #00cccc;
+}
+
+/* ==================================================================
+TWITTER
+================================================================== */
+.icon-twitter {
+	color: #00cccc;
+}
+
+/* ==================================================================
+CONTACT
+================================================================== */
+.button-send:hover,
+.button-send:focus,
+.button-send:active{
+	border-color: #00cccc;
+	background: #00cccc;
+}
+
+.success-message-2{
+	color: #00cccc;
+}
+
+/* ==================================================================
+FOOTER
+================================================================== */
+.footer-content .back-top:hover{
+	background-color: #00cccc;
+}
+
+/* ==================================================================
+RESPONSIVE
+================================================================== */
+@media (max-width: 480px) {
+	.navbar-toggle:hover .icon-bar{
+		background-color: #00cccc;
+	}
+}

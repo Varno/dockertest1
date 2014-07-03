@@ -1,0 +1,58 @@
+@!(model)
+
+@function body() {
+<div class="container" ng-controller="resetPasswordController" ng-init="init('@model.token')">
+    <div class="row login-container complete-register animated fadeInUp">
+        <div class="col-md-7 col-md-offset-2 tiles white no-padding">
+            <div class="p-t-30 p-r-30 p-l-40 p-r-40 p-b-20 p-r-20 xs-p-t-10 xs-p-r-10 xs-p-l-10 xs-p-r-10 xs-p-b-10 xs-p-r-10">
+
+                <h2 class="normal">Reset password</h2>
+
+                <div class="alert alert-success" ng-show="isPasswordReseted">
+                    <p>Your password has been successfully reset. Please login with your new
+                        credentials.</p>
+                </div>
+
+                <div class="alert alert-error" ng-show="errorMessage">
+                    {{ errorMessage }}
+                </div>
+
+                <form parsley-validate class="animated fadeIn" submit-valid-only="resetPassword()">
+                    <div class="row" ng-hide="isPasswordReseted">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="form-label">New Password</label>
+
+                                <div class="controls">
+                                    <input id="password" type="password" class="form-control required"
+                                           parsley-minlength="6" ng-model="password"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Retype New Password</label>
+
+                                <div class="controls">
+                                    <input type="password" class="form-control required"
+                                           parsley-equalto="#password" ng-model="confirm"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <loader ng-model="isLoading" center="true"></loader>
+
+                    <a href='/' class="btn btn-default btn-cons pull-right" ng-hide="isPasswordReseted">Cancel</a>
+                    <button type="submit" class="overflow-auto m-b-40 btn btn-primary btn-cons pull-right"
+                            ng-hide="isPasswordReseted">
+                        <i class="fa fa-check"></i>&nbsp;Submit
+                    </button>
+                    <a href='{{ loginUrl }}' class="btn btn-primary btn-cons pull-right"
+                       ng-show="isPasswordReseted">Login</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+@render('../shared/auth-layout', body)

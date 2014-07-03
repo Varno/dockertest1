@@ -1,0 +1,43 @@
+<style type="text/css">
+    #btnCancel
+    {
+        margin: 5px 10px 0 0;
+    }
+</style>
+<div id="modal-header" class="modal-header">
+    <button type="button" class="close" aria-hidden="true" ng-click="closeDateRangeModal()">&times;</button>
+
+    <h4><strong>Please, choose your daterange</strong></h4>
+    <h5>All your selected pixels between selected timeborders will be exported</h5>
+</div>
+<div class="container">
+    <div class="row show-grid">
+        <br />
+        <br />
+        <div class="col-md-3">
+            <p class="input-group">
+                <input type="text" class="form-control" datepicker-popup="MM/dd/yyyy" ng-model="$parent.startDate" is-open="$parent.startDateOpened" min="'01/01/2013'" datepicker-options="dateOptions" date-disabled="startDateDisabled(date, mode)" ng-required="true" close-text="Close" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default" ng-click="openStart($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <p class="input-group">
+                <input type="text" class="form-control" datepicker-popup="MM/dd/yyyy" ng-model="$parent.endDate" is-open="$parent.endDateOpened" min="minDate" max="tomorrow" datepicker-options="dateOptions" date-disabled="endDateDisabled(date, mode)" ng-required="true" close-text="Close" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default" ng-click="openEnd($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </p>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row-fluid col-md-6">
+            <div class="span1 pull-right">
+                <a href="{{exportCustom}}" ng-click="closeDateRangeModal()" class="btn btn-success btn-cons"><i class="fa fa-cloud-download"></i>&nbsp;&nbsp;<span class="bold">Export</span></a>
+            </div>
+            <div class="span-1 pull-right">
+                <a href="javascript:void(0)" id="btnCancel" class="btn btn-small pull-right" ng-click="closeDateRangeModal()">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>

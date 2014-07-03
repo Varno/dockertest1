@@ -1,0 +1,39 @@
+<div class="col-md-12 col-sm-12" id="crop-container">
+
+    <div class="controls">
+
+        <div class="col-md-6 col-sm-6">
+            <label class="control-label text-left">Width</label>
+            <input type="text" placeholder="width" name="crop-width" id="crop-width" number ng-model="stageModel.crop.width">
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <label class="control-label text-left">Height</label>
+            <input type="text" placeholder="height" name="crop-height" id="crop-height" number ng-model="stageModel.crop.height">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <label class="control-label text-left">Coordinates</label>
+
+    <div class="controls stack-left">
+        <div class="col-md-6 col-sm-6">
+            <label class="control-label text-left">Top Left</label>
+            <input type="text" placeholder="top x" id="top-x" number name="top-x" ng-model="stageModel.crop.topX">
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <label class="control-label text-left">Top Right</label>
+            <input type="text" placeholder="top y" id="top-y" name="top-y" number ng-model="stageModel.crop.topY">
+            <label>Bla: {{scope.stageModel.crop.topY}}</label>
+        </div>
+    </div>
+    <!--<div class="controls stack-left">-->
+        <!--<div class="col-md-6 col-sm-6">-->
+            <!--<label class="control-label text-left">Bottom Left</label>-->
+            <!--<input type="text" placeholder="x,y" id="bottom-left" name="bottom-left" coords data-ng-model="stageModel.crop.bottomLeft">-->
+        <!--</div>-->
+        <!--<div class="col-md-6 col-sm-6">-->
+            <!--<label class="control-label text-left">Bottom Right</label>-->
+            <!--<input type="text" placeholder="x,y" id="bottom-right" name="bottom-right" coords data-ng-model="stageModel.crop.bottomRight">-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="clearfix"></div>
+</div>

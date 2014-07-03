@@ -1,0 +1,27 @@
+<div class="container">
+    <!--<div class="row">-->
+        <!--<img src="{{imgMngtModel.resizedImageUrl}}" id="preview">-->
+    <!--</div>-->
+    <!--<div class="clearfix"></div>-->
+    <div class="resized">
+        <div class="row text-left" data-ng-show="imgMngtModel.resizedImageUrl">
+            <b>Resizing Url:</b>
+            <span class="resized-image-url" data-ng-bind-html="imgMngtModel.resizedImageUrl" selectable></span>
+        </div>
+        <div class="clearfix"></div>
+        <br>
+        <div class="row text-left" data-ng-show="imgMngtModel.resizedImageUrl">
+            <img src="{{imgMngtModel.resizedImageUrl}}" id="preview">
+        </div>
+    </div>
+    <div class="row">
+        <div id="draggable-container">
+            <accordion close-others="true">
+                <accordion-group ng-repeat="stageModel in imgMngtModel.stages" heading="{{stageModel.displayName}}" is-open="$index==0 || isOpen">
+                    <div accordion-control ng-model="stageModel" ng-init="$last ? initMenu() : void(0)"></div>
+                </accordion-group>
+            </accordion>
+        </div>
+    </div>
+</div>
+

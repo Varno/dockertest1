@@ -1,0 +1,44 @@
+<div class="col-md-12 col-sm-12">
+    <label class="control-label text-left">Format</label>
+    <div class="controls">
+        <select name="output-format" id="output-format" data-ng-model="stageModel.format.value">
+            <option>jpg</option>
+            <option>png</option>
+            <option>gif</option>
+        </select>
+    </div>
+    <label class="control-label text-left m-t-10">Pixel depth</label>
+    <div class="controls bitness">
+        <input type="radio" name="pixel-depth" id="pixel-depth-none" data-ng-model="stageModel.bitsPerPixel.value" data-ng-value="none">
+        <label for="pixel-depth-none">none</label>
+        <div class="clearfix"></div>
+        <input type="radio" name="pixel-depth" id="pixel-depth-8" data-ng-model="stageModel.bitsPerPixel.value" data-ng-value="8">
+        <label for="pixel-depth-8">8 bit</label>
+        <div class="clearfix"></div>
+        <input type="radio" name="pixel-depth" id="pixel-depth-24" data-ng-model="stageModel.bitsPerPixel.value" data-ng-value="24">
+        <label for="pixel-depth-24">24 bit</label>
+        <div class="clearfix"></div>
+        <input type="radio" name="pixel-depth" id="pixel-depth-32" data-ng-model="stageModel.bitsPerPixel.value" data-ng-value="32">
+        <label for="pixel-depth-32">32 bit</label>
+        <div class="clearfix"></div>
+    </div>
+    <div class="controls">
+        <div class="col-md-6 col-sm-6">
+            <label class="control-label text-left">Optimization</label>
+            <input type="text" name="optimization" id="optimization" data-ng-model="stageModel.optimize.value">
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <label class="control-label text-left">Compression</label>
+            <input type="text" name="compression" id="compression" data-ng-model="stageModel.compression.value">
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <br/>
+    <div class="controls">
+        <div class="col-md-6 col-sm-6">
+            <button class="btn hide" id="previewBtn" type="button" ng-click="stageModel.parentModel.buildResizingUrl()">
+                Preview
+            </button>
+        </div>
+    </div>
+</div>

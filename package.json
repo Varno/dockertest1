@@ -1,0 +1,53 @@
+{
+  "name": "ImageResizer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "run.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node run.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~3.4.8",
+    "connect-mongo": "~0.4.0",
+    "mongoose": "~3.8.6",
+    "async": "~0.2.10",
+    "dateformat": "~1.0.7-1.2.3",
+    "underscore": "~1.6.0",
+    "stylus": "~0.42.2",
+    "less": "~1.6.3",
+    "passport": "~0.2.0",
+    "passport-local": "~0.1.6",
+    "config": "~0.4.35",
+    "js-yaml": "~3.0.1",
+    "mkdirp": "~0.3.5",
+    "pass-reset": "~0.1.2",
+    "passport-remember-me": "0.0.1",
+    "mongoose-times": "~0.1.0",
+    "airbrake": "~0.3.8",
+    "iron_mq": "~0.2.3",
+    "stripe": "~2.4.2",
+    "when": "~3.0.1",
+    "connect-flash": "~0.1.1",
+    "ziptastic": "~0.1.0",
+    "pluralize": "0.0.7",
+    "numeral": "~1.5.3",
+    "randomstring": "1.0.3",
+    "moment": "2.5.1",
+    "request": "2.34.0",
+    "querystring": "0.2.0",
+    "uuid": "^1.4.1",
+    "socket.io": "~0.9.16",
+    "bliss": "~1.0.1",
+    "validator": "~3.10.0",
+    "xml2js": "~0.4.2",
+    "twilio": "~1.6.0",
+    "htmlencode": "0.0.3",
+    "mime": "~1.2.11"
+  }
+}

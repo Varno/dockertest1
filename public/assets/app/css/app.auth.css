@@ -1,0 +1,14 @@
+.complete-register .btn{
+    margin-bottom: 40px!important;
+    overflow:auto;
+}
+
+.version{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.input-group.transparent {
+    margin-bottom: 10px;
+}

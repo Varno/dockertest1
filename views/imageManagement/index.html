@@ -1,0 +1,36 @@
+﻿@!(model)
+@function styles(){
+<link href="/assets/others/plugins/jquery-image-cropper/cropper.css" rel="stylesheet" type="text/css">
+<link href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+<link href="/assets/others/plugins/boostrap-slider/css/slider.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/others/plugins/boostrap-slider/css/colored.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/others/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/others/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css" media="screen">
+<link href="/css/imagemanagement.css" rel="stylesheet" type="text/css"/>
+}
+
+@function scripts(){
+<script type="text/javascript" src="/assets/others/plugins/bootstrap-monkey-dialog/bootstrap-dialog.min.js"></script>
+<script type="text/javascript" src="/assets/others/plugins/jquery-image-cropper/cropper.js"></script>
+<script src="/assets/others/plugins/jquery-slider/jquery.sidr.min.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/boostrap-slider/js/bootstrap-slider.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/switchery/switchery.min.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/jquery-block-ui/jquery.blockUI.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/jquery-block-ui/jquery.blockUI.extension.js" type="text/javascript"></script>
+        
+<script type="text/javascript" src="/application/config.js"></script>
+<script type="text/javascript" src="/application/angular-directives/imageManagement-directives.js"></script>
+<script type="text/javascript" src="/application/services/resizerService.js"></script>
+<script type="text/javascript" src="/application/services/securityService.js"></script>
+<script type="text/javascript" src="/application/services/dashboardService.js"></script>
+<script type="text/javascript" src="/application/controllers/imgMngtController.js"></script>
+<script type="text/javascript" src="/application/angular-apps/imageManagement.js"></script>
+}
+
+@function body() {
+<div class="container" ng-controller="imgMngtController" ng-cloak>
+    <div class="span20" imgsrc-wizard></div>
+</div>
+}
+@render('../shared/layout',body,model,styles,scripts)

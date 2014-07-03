@@ -1,0 +1,62 @@
+<div id="modal-header" class="modal-header">
+    <button type="button" class="close" aria-hidden="true" ng-click="cancel()">&times;</button>
+
+    <h4><strong>Let`s get this Account setup</strong></h4>
+    <h5>We just need a little info about the account to get it in place.</h5>
+</div>
+<form name="form" parsley-validate submit-valid-only="update()" novalidate>
+    <div class="modal-body bg-gray session-modal">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <div class="controls">
+                        <input name="firstName"
+                               type="text"
+                               class="form-control required"
+                               placeholder="First Name"
+                               ng-model="instance.firstName"
+                               focus-me="true">
+                    </div>
+
+                    <div class="controls">
+                        <input name="lastName"
+                               type="text"
+                               class="form-control required"
+                               placeholder="Last Name"
+                               ng-model="instance.lastName">
+                    </div>
+
+                    <div class="controls">
+                        <input name="email"
+                               type="text"
+                               class="form-control required"
+                               placeholder="E-mail"
+                               parsley-type="email"
+                               ng-model="instance.email">
+                    </div>
+
+                    <div class="controls">
+                        <input name="organizationName"
+                               type="text"
+                               class="form-control required"
+                               placeholder="Organization Name"
+                               ng-model="instance.organizationName">
+                    </div>
+
+                    <div class="controls" ng-if="instance._id">
+                        <input name="userKey"
+                               type="text"
+                               class="form-control required"
+                               placeholder="User Key"
+                               readonly="readonly"
+                               ng-model="instance.threeScaleUserKey">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-white" ng-click="cancel()">Close</button>
+        <button class="btn btn-primary" type="submit">Save</button>
+    </div>
+</form>

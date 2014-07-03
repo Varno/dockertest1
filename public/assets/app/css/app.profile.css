@@ -1,0 +1,117 @@
+.cbp_tmlabel .actions {
+    font-size: 20px;
+}
+
+.cbp_tmlabel .actions .fa {
+    color: gray;
+}
+
+img.drag-over {
+    border: 5px dashed red;
+}
+
+div.drag-over {
+    border: 5px dashed red;
+}
+
+.postalCode:before {
+    content: '\f041'; /* fa-map-marker */
+}
+
+.phone:before {
+    content: '\f095'; /* fa-phone */
+}
+
+.contact-form .wysihtml5-sandbox {
+    height: 200px !important;
+}
+
+.tiles.white a {
+    color: #8b91a0;
+}
+
+.tiles.white a:hover {
+    text-decoration: underline;
+}
+
+.force-wrap {
+    word-wrap: break-word;
+}
+
+.user-profile-pic-modal {
+    margin-top:0;
+    padding-bottom: 10px;
+
+}
+
+.datepicker-days .day.active{
+    background: #0090d9!important;
+}
+
+.session-modal .wysihtml5-sandbox{
+    height: 250px!important;
+}
+
+/*session-content-collection*/
+
+.session-content-collection a {
+    color: #576475;
+}
+
+.session-content-upload td{
+    position: relative;
+    padding: 0!important;
+    display: block;
+}
+
+.session-content-upload td .progress{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    border-radius: 0;
+    background: none;
+}
+
+.session-content-upload td .progress .progress-bar{
+    background: #9adfa3!important;
+    border-radius: 0;
+}
+
+.session-content-upload .fileName{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.session-content-upload .btn-trash{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.session-content-upload .has-progress .fileName,
+.session-content-upload .has-progress .btn-trash i.fa:before{
+    color: #499561;
+}
+
+.muted a , .muted {
+    color: #b6bfc5 !important;
+}
+
+/* Cover image styles fixes */
+
+.cover-pic-wrapper {
+    overflow: visible;
+    background-repeat: no-repeat;
+}
+
+.cover-pic-wrapper .btn-group {
+    vertical-align: top
+}
+
+.cover-pic-wrapper a:hover {
+    text-decoration: none !important;
+}
+
+.dropdown-height { height: 34px }

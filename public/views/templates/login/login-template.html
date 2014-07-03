@@ -1,0 +1,152 @@
+﻿<div class="container" ng-controller="resetPasswordController" ng-init="init(null)">
+    <div class="row login-container animated fadeInUp">
+        <div class="col-md-7 col-md-offset-2 tiles white no-padding">
+            <div class="p-t-30 p-l-40 p-b-20 xs-p-t-10 xs-p-l-10 xs-p-b-10 p-r-20">
+                <h2 class="normal">Sign in to ImageResizer</h2>
+
+                <p>Use Facebook, Twitter or your email to sign in.<br>
+                </p>
+
+                <p class="p-b-20">Sign up Now! for ImageResizer accounts, it's free and always will be..</p>
+
+                <div class="widget-stats col-md-7 col-s-7 col-xs-7">
+                    <div class="wrapper transparent">
+                        <button type="button" class="btn btn-primary btn-cons" id="Button1"  ng-click="toggleRegistrationForm()">Login</button>
+                        or&nbsp;&nbsp;
+                        <button type="button" class="btn btn-info btn-cons" id="register_toggle" ng-click="toggleRegistrationForm()">Create an account
+                        </button>
+                    </div>
+                </div>
+                <!-- <div class="col-md-5 col-s-5 col-xs-5">
+                    <a href="/auth/facebook" class="btn btn-block btn-info">
+                        <span class="pull-left"><i class="fa fa-facebook"></i></span>
+                        <span class="bold">Login with Facebook</span>
+                    </a>
+                    <a href="/auth/twitter" class="btn btn-block btn-success">
+                        <span class="pull-left"><i class="fa fa-twitter"></i></span>
+                        <span class="bold">Login with Twitter</span>
+                    </a>
+                    <a href="/auth/linkedIn" class="btn btn-block btn-success">
+                        <span class="pull-left"><i class="fa fa-linkedin"></i></span>
+                        <span class="bold">Login with LinkedIn</span>
+                    </a>
+                </div>
+                <div class="clearfix"></div> -->
+
+            </div>
+
+            <div class="tiles grey p-t-20 p-b-20 text-black">
+                <form id="frm_login" class="animated fadeIn" ng-if="!showRegistration"
+                      parsley-validate action='/login' method='post'>
+                    <input name="role" type="hidden" value="speaker">
+
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-6 col-sm-6 ">
+                            <input name="email" id="login_username" type="text" class="form-control required"
+                                   placeholder="Email" value="{{model.loginUser}}">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <input name="password" id="login_pass" type="password" class="form-control required"
+                                   placeholder="Password">
+                        </div>
+
+                    </div>
+
+                    <div class="row p-t-10 m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="control-group col-md-6">
+                            <div class="checkbox checkbox check-success">
+                                <input type="checkbox" name='rememberMe' id="rememberMe" value="1">
+                                <label for="rememberMe">Remember Me</label>
+
+                                <p><a href="#" ng-click="showResetPasswordRequestModal()">Forgot my Password</a></p>
+                            </div>
+                        </div>
+                        <div class="control-group col-md-6">
+                            <button type="submit" class="btn btn-info btn-cons pull-right">Login</button>
+                        </div>
+                    </div>
+                </form>
+
+                <form id="frm_register" class="animated fadeIn" ng-if="showRegistration" ng-submit="checkFormSubmit($event)"
+                      parsley-validate action='/auth/email' method='post'>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-6 col-sm-6">
+                            <input name="firstName" id="reg_first_Name" type="text" class="form-control required"
+                                   placeholder="First Name" value="{{model.regUser.firstName}}">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <input name="lastName" id="Text1" type="text" class="form-control required"
+                                   placeholder="Last Name" value="{{model.regUser.lastName}}">
+                        </div>
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-12">
+                            <div class="input-group transparent">
+                                <span class="input-group-addon ">/</span>
+                                <input name="company" type="text" class="form-control required" placeholder="Company"
+                                       parsley-regexp="^[A-Za-z0-9\.\-_]+$"
+                                       parsley-error-container="#aliasErrorContainer"
+                                       parsley-error-message="Company is required and should consists of alphanumeric symbols, dots, underscores and dashs only."
+                                       value="{{model.regUser.alias}}">
+                            </div>
+                            <div id="aliasErrorContainer"></div>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-12 ">
+                            <input name="email" id="reg_email" type="email" class="form-control required"
+                                   placeholder="Email" value="{{model.regUser.email}}">
+                        </div>
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-6 col-sm-6">
+                            <input name="password" id="reg_password" type="password" class="form-control required"
+                                   placeholder="Password" parsley-minlength="6">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <input name="reg_pass" id="reg_confirm_password" type="password"
+                                   class="form-control required" placeholder="Retype Password"
+                                   parsley-equalto="#reg_password">
+                        </div>
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-6 col-sm-6">
+                            <input name="phone" type="text" class="form-control required"
+                                   placeholder="Cell Phone Number"
+                                   parsley-type="digits"
+                                   value="{{model.regUser}}">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <input name="postalCode" type="text" class="form-control required"
+                                   placeholder="Postal Code"
+                                   parsley-type="digits"
+                                   value="{{model.regUser.postalCode}}">
+                            </div>
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-12 col-sm-12">
+                            <input name="domains" id="domains" type="text" class="form-control required"
+                                   placeholder="Comma-separated domain names"
+                                   required
+                                   parsley-type="csvdomains"
+                                   value="{{model.regUser.domains}}">
+                        </div>
+                    </div>
+                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-info btn-cons pull-right" id="Button2">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<script type="text/javascript">
+    $('#domains').tagsinput();
+</script>-->

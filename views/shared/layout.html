@@ -1,0 +1,133 @@
+@!(body, model, styles, scripts)
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <title>@model.title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <link href="/assets/others/plugins/jquery-polymaps/style.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="/assets/others/plugins/jquery-metrojs/MetroJs.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/others/plugins/shape-hover/css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/others/plugins/shape-hover/css/component.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/others/plugins/owl-carousel/owl.carousel.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/others/plugins/owl-carousel/owl.theme.css"/>
+    <link href="/assets/others/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="/assets/others/plugins/jquery-slider/css/jquery.sidr.light.css" rel="stylesheet" type="text/css"
+          media="screen"/>
+    <link rel="stylesheet" href="/assets/others/plugins/jquery-ricksaw-chart/css/rickshaw.css" type="text/css"
+          media="screen">
+    <link href="/assets/others/plugins/jquery-isotope/isotope.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/others/plugins/ios-switch/ios7-switch.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="/assets/lib/parsley/plugin.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/assets/others/plugins/jquery-notifications/css/messenger.css" rel="stylesheet" type="text/css"
+          media="screen"/>
+    <link href="/assets/others/plugins/jquery-notifications/css/messenger-theme-future.css" rel="stylesheet"
+          type="text/css" media="screen"/>
+
+    <!-- BEGIN CORE CSS FRAMEWORK -->
+    <link href="/assets/others/plugins/boostrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/others/plugins/boostrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/others/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/others/css/animate.min.css" rel="stylesheet" type="text/css"/>
+    <!-- END CORE CSS FRAMEWORK -->
+    <!-- BEGIN CSS TEMPLATE -->
+    <link href="/assets/css/form-elements/custom-icon-set.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/form-elements/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/others/css/responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/others/css/magic_space.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/others/css/tiles_responsive.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        .menu-highlight{
+            cursor: default;
+            border: 2px rgb(10, 166, 153) solid;
+        }
+        .header.navbar.navbar-inverse{
+            top:0;
+        }
+    </style>
+    @styles()
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+@render("../shared/_header", model)
+<body>
+
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container row-fluid">
+    <div class="page-content">
+        <div class="content">
+            @body()
+        </div>
+    </div>
+</div>
+
+
+<!-- BEGIN CORE JS FRAMEWORK-->
+<script src="/assets/others/plugins/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/boostrapv3/js/bootstrap.min.js" type="text/javascript"></script>
+<!--<script src="/assets/others/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>-->
+<!--<script src="/assets/others/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>-->
+<script src="/assets/others/plugins/jquery-inputmask/jquery.inputmask.min.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/bootstrap-tag/bootstrap-tagsinput.min.js" type="text/javascript"></script>
+<!-- END CORE JS FRAMEWORK -->
+<!-- BEGIN PAGE LEVEL JS -->
+<script src="/assets/others/plugins/pace/pace.min.js" type="text/javascript"></script>
+<!--<script src="/assets/others/plugins/jquery-slider/jquery.sidr.min.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>-->
+<script src="/assets/others/js/jquery.plainoverlay.min.js" type="text/javascript"></script>
+<script src="/assets/lib/parsley/parsley.min.js" type="text/javascript"></script>
+<script src="/assets/lib/parsley/parsley.extend.min.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/jquery-notifications/js/messenger.min.js" type="text/javascript"></script>
+<script src="/assets/others/plugins/jquery-notifications/js/messenger-theme-future.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+
+<!-- Utils -->
+<script src="/assets/lib/moment.min.js" type="text/javascript"></script>
+<script src="/assets/lib/underscore-min.js" type="text/javascript"></script>
+<!-- End Utils -->
+
+<!--Angular-->
+<script type="text/javascript" src="/assets/lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="/assets/lib/angular/angular-route.min.js"></script>
+<script type="text/javascript" src="/assets/lib/angular/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="/assets/lib/ui-bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
+<!--End Angular -->
+
+<!-- App -->
+<script type="text/javascript" src="/assets/app/js/app.notifications.js"></script>
+<script type="text/javascript" src="/application/config.js"></script>
+<script type="text/javascript" src="/application/directives/tagsInputDirective.js"></script>
+<script type="text/javascript" src="/application/angular-directives/common-directives.js"></script>
+<script type="text/javascript" src="/application/directives/loaderDirective.js"></script>
+<script type="text/javascript" src="/application/directives/submitValidOnlyDirective.js"></script>
+
+<script type="text/javascript" src="/application/services/dashboardService.js"></script>
+<script type="text/javascript" src="/application/services/notificationService.js"></script>
+<script type="text/javascript" src="/application/services/activationService.js"></script>
+<script type="text/javascript" src="/application/services/securityService.js"></script>
+<script type="text/javascript" src="/application/controllers/profileEditorController.js"></script>
+<script type="text/javascript" src="/application/angular-apps/profile.js"></script>
+
+<!-- End App -->
+@scripts()
+
+<script>
+    var heap=heap||[];heap.load=function(a){window._heapid=a;var b=document.createElement("script");b.type="text/javascript",b.async=!0,b.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d=function(a){return function(){heap.push([a].concat(Array.prototype.slice.call(arguments,0)))}},e=["identify","track"];for(var f=0;f<e.length;f++)heap[e[f]]=d(e[f])};
+    heap.load("335729428");
+</script>
+
+<script>
+    window.Airbrake = [];
+    window.Airbrake.try = function(fn) { try { fn() } catch(er) { window.Airbrake.push(er); } };
+</script>
+<script defer src="https://ssljscdn.airbrake.io/airbrake-js-tracekit.min.js"
+        data-airbrake-project-id="96833"
+        data-airbrake-project-key="dbce9581fb5b43792e52161eeb99175c"
+        data-airbrake-project-environment-name="production"></script>
+</body>
+</html>

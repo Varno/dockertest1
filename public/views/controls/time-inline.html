@@ -1,0 +1,35 @@
+<div class="row" prevent-click>
+    <div class="col-md-6 z-index-1" style="padding-left:0px;">
+        <div class="btn-group btn-group-vertical" ng-repeat="hourItemGroup in hourItems.groups">
+            <button class="btn"
+                    ng-repeat="hour in hourItemGroup"
+                    ng-click="selectHour(hour)"
+                    ng-class="{false: 'btn-white', true: 'active btn-success'}[isHourSelected(hour)]">
+                {{hour.title}}
+            </button>
+        </div>
+    </div>
+
+    <div class="col-md-6 z-index-1 m-b-sm" style="padding-left:0px; padding-right:0px;">
+        <div class="btn-group btn-group-vertical" ng-repeat="minuteItemGroup in minuteItems.groups">
+            <button class="btn"
+                    ng-repeat="minute in minuteItemGroup"
+                    ng-click="selectMinute(minute)"
+                    ng-class="{false: 'btn-white', true: 'active btn-success'}[isMinuteSelected(minute)]">
+                {{minute.title}}
+            </button>
+        </div>
+    </div>
+    <div  class="col-md-12 text-center">
+        <button class="btn"
+                ng-class="{'AM': 'btn-info', 'PM': 'btn-warning'}[period]"
+                ng-click="selectPeriod('AM')">
+            AM
+        </button>
+        <button class="btn btn-primary m-r-lg"
+                ng-class="{'PM': 'btn-info', 'AM': 'btn-primary'}[period]"
+                ng-click="selectPeriod('PM')">
+            PM
+        </button>
+    </div>
+</div>

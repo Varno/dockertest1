@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-hidden="true" ng-click="cancel()">&times;</button>
+
+    <h3>Reset password</h3>
+</div>
+<form name="form" parsley-validate submit-valid-only="process()" novalidate>
+    <div class="modal-body bg-gray">
+        <div class="alert alert-error" ng-if="errorMessage" ng-switch="errorMessage">
+            <span ng-switch-when="No such user">No users found for this email</span>
+            <span ng-switch-default>{{ errorMessage }}</span>
+        </div>
+
+        <div class="alert alert-success" ng-if="isRequestSent">
+            <p>You request successfully sent. Please check you email for further instructions.</p>
+        </div>
+
+        <div class="row" ng-hide="isRequestSent" ng-if="!isLoading">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
+                <p>Please, type your email here to get further reset password instructions.</p>
+
+                <div class="form-group">
+                    <input type="text" placeholder="Email" class="form-control required" parsley-type="email"
+                           ng-model="$parent.$parent.email"/>
+                </div>
+            </div>
+        </div>
+
+        <loader ng-model="isLoading" center="true"></loader>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" type="button" ng-click="cancel()" ng-hide="isRequestSent">Cancel</button>
+        <button class="btn btn-primary" type="submit" ng-disabed="isLoading" ng-hide="isRequestSent">Reset</button>
+        <button class="btn btn-primary" type="button" ng-click="cancel()" ng-show="isRequestSent">Close</button>
+    </div>
+</form>
